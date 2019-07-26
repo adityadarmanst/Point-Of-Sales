@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PageCon@login');
+Route::get('/about','PageCon@about');
+Route::post('/testJson','pageCon@testJson');
