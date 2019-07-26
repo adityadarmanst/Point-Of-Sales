@@ -14,3 +14,4 @@
 Route::get('/', 'PageCon@login');
 Route::get('/about','PageCon@about');
 Route::post('/testJson','pageCon@testJson');
+Route::post('/updateSup', 'pageCon@updateSup');

@@ -29,4 +29,11 @@ class PageCon extends Controller
 
     }
 
+    public function updateSup(Request $request)
+    {
+        $namaSupbaru = $request -> nama;
+        DB::table('suppliers')->where('kode','09001902221')->update(['nama_lengkap' => $namaSupbaru]);
+        return 'Sudah di update';
+    }
+
 }
