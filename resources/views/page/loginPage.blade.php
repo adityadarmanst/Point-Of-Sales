@@ -39,6 +39,9 @@
                   <div class="form-group">
                     <input type="password" class="form-control form-control-lg" id="txtPassword" placeholder="Password">
                   </div>
+                  <div class="alert alert-success" role="alert" id='capNotifLogin'>
+                   
+                  </div>
                   <div class="mt-3">
                     <a id='btnMasuk' class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="#!">Masuk</a>
                   </div>
