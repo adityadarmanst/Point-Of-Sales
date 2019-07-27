@@ -7,8 +7,10 @@
 Ini isi dari halaman login<br/>
 <a href='#!' class='btn btn-success' id='btnTampilkan'>Tampilkan</a><br/><br/>
 <input type='text'  id='txtNama'>
-<a href='#!' class='btn btn-success' id='btnUpdate'>Update</a>
+<a href='#!' class='btn btn-success' id='btnUpdate'>Update</a><br/><br/>
+<a href='#!' class='btn btn-warning' id='btnGoForm'>Load</a>
 <div class='row mt2'><h2 id='teksKita'></h2></div>
+<div id='divSkrip'></div>
 </div>
 <div>
 </div>
@@ -33,8 +35,13 @@ $(document).ready(function(){
             console.log(data);
             $('#teksKita').html(nama);
         });
-        
     });
+
+    $('#btnGoForm').click(function(){
+        $('#divSkrip').load('/editForm');
+    });
+   
+
 });
 </script>
 @endsection

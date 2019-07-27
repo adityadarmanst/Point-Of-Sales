@@ -9,7 +9,7 @@ class PageCon extends Controller
 {
     public function login()
     {
-        return view('page.login');
+        return view('page.loginPage');
     }
 
     public function about()
@@ -34,6 +34,11 @@ class PageCon extends Controller
         $namaSupbaru = $request -> nama;
         DB::table('suppliers')->where('kode','09001902221')->update(['nama_lengkap' => $namaSupbaru]);
         return 'Sudah di update';
+    }
+
+    public function editForm()
+    {
+        return '<b>Tebal</b>';
     }
 
 }

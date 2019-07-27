@@ -13,5 +13,8 @@
 
 Route::get('/', 'PageCon@login');
 Route::get('/about','PageCon@about');
+
+//untuk testing
 Route::post('/testJson','pageCon@testJson');
 Route::post('/updateSup', 'pageCon@updateSup');
+Route::get('/editForm', 'PageCon@editForm');
