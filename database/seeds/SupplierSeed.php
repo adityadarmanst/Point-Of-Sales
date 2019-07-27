@@ -20,5 +20,11 @@ class SupplierSeed extends Seeder
             'active' => 'y',
             'created_at' => date("Y-m-d H:i:s") 
         ]);
+        
+        DB::table('categories')->insert([
+            'kode' => '0001',
+            'nama' => 'Snack',
+            'active' => 'y'
+        ]);
     }
 }

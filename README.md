@@ -3,9 +3,3 @@
 
 Menggunakan framework laravel
 
-
-## Learning Laravel
-
-
-## Laravel Sponsors
-
