@@ -14,7 +14,16 @@
 Route::get('/', 'PageCon@login');
 Route::get('/about','PageCon@about');
 
+// Untuk login proses
+Route::post('/prosesLogin','PageCon@loginProses');
+  
+
+//halaman dashboard
+Route::get('/dashboard', 'DashboardCon@home');
+
+
 //untuk testing
 Route::post('/testJson','pageCon@testJson');
 Route::post('/updateSup', 'pageCon@updateSup');
 Route::get('/editForm', 'PageCon@editForm');
+

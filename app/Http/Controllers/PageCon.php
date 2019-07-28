@@ -21,6 +21,14 @@ class PageCon extends Controller
         return view('page.about');
     }
 
+    public function loginProses(Request $request)
+    {
+        $username = $request -> username;
+        $password = $request -> password;
+        $data = ['username' => $username, 'password' => $password,'statusLogin' => 'success'];
+        return \Response::json($data);
+    }
+
     public function testJson(Request $request)
     {
         $suppliers = DB::table('suppliers')->where('kode','09001902221')->get();
