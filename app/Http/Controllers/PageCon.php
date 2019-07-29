@@ -25,8 +25,24 @@ class PageCon extends Controller
     {
         $username = $request -> username;
         $password = $request -> password;
-        $data = ['username' => $username, 'password' => $password,'statusLogin' => 'success'];
-        return \Response::json($data);
+        $dataUser = DB::table('tbl_user')-> where ('username', $username) -> first();
+        $statusLogin = "";
+
+        // return \Response::json($dataUser);
+        if($dataUser == ""){
+            $statusLogin = "no_username";
+        }else{
+            $passDb = $dataUser -> password;
+            $passwordCocok = password_verify($password,$passDb);
+            if($passwordCocok == true){
+                $statusLogin = "login_success";
+            }else{
+                $statusLogin = "fail_password";
+            }
+        }
+        $statLog = ['statusLogin' => $statusLogin];
+        
+        return \Response::json($statLog);
     }
 
     public function testJson(Request $request)

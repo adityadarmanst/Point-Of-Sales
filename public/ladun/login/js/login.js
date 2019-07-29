@@ -23,13 +23,19 @@ $(document).ready(function(){
             $.post('/prosesLogin',{'username':username,'password':password}, function(data){
                 
                 var statusLogin = data.statusLogin;
-
-                if(statusLogin === 'fail'){
+                console.log(data);
+                if(statusLogin === 'no_username'){
                     capNotif.removeClass('alert-warning');
                     capNotif.removeClass('alert-success').addClass('alert-danger');
-                    capNotif.html('Username / password salah!!');
+                    capNotif.html('Username tidak ditemukan!!');
                     capNotif.show();
                     setTimeout(tutupCapNotif, 2000);
+                }else if(statusLogin === 'fail_password'){
+                    capNotif.removeClass('alert-warning');
+                    capNotif.removeClass('alert-success').addClass('alert-danger');
+                    capNotif.html('Username / Password salah!!');
+                    capNotif.show();
+                    setTimeout(tutupCapNotif, 2000);               
                 }else{
                    window.location.assign('/dashboard');
                 }

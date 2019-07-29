@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSuppliers extends Migration
+class BuatSupplier extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSuppliers extends Migration
      */
     public function up()
     {
-        Schema::create('suppliers', function (Blueprint $table) {
+        Schema::create('tbl_supplier', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('kode', 20);
             $table->string('nama_lengkap', 150);
@@ -33,6 +33,6 @@ class CreateSuppliers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('suppliers');
+        //
     }
 }
