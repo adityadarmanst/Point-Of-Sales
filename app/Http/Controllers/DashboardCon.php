@@ -14,7 +14,11 @@ class DashboardCon extends Controller
         }else{
             return view('page.dashboard.main');
         }
-        
+    }
+
+    public function beranda()
+    {
+        return view('page.dashboard.beranda');
     }
 
     public function logOut()

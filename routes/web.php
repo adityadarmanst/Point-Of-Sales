@@ -20,6 +20,7 @@ Route::post('/prosesLogin','PageCon@loginProses');
 
 //halaman dashboard
 Route::get('/dashboard', 'DashboardCon@home');
+Route::get('/beranda','DashboardCon@beranda');
 
 //untuk proses login
 Route::get('/logOut', 'DashboardCon@logOut');
