@@ -8,6 +8,19 @@ class DashboardCon extends Controller
 {
     public function home()
     {
-        return 'Halaman dashboard';
+        //session()->flush();
+        if(!session('userSession')){
+            return redirect('/');
+        }else{
+            return view('page.dashboard.main');
+        }
+        
     }
+
+    public function logOut()
+    {
+        session()->flush();
+        return redirect('/');
+    }
+
 }

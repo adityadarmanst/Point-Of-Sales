@@ -35,6 +35,7 @@ class PageCon extends Controller
             $passDb = $dataUser -> password;
             $passwordCocok = password_verify($password,$passDb);
             if($passwordCocok == true){
+                session(['userSession' => $username]);
                 $statusLogin = "login_success";
             }else{
                 $statusLogin = "fail_password";

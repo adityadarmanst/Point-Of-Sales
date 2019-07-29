@@ -21,6 +21,9 @@ Route::post('/prosesLogin','PageCon@loginProses');
 //halaman dashboard
 Route::get('/dashboard', 'DashboardCon@home');
 
+//untuk proses login
+Route::get('/logOut', 'DashboardCon@logOut');
+
 
 //untuk testing
 Route::post('/testJson','pageCon@testJson');
