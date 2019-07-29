@@ -15,6 +15,7 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="ladun/login/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="ladun/login/images/favicon.png" />
   </head>
@@ -27,7 +28,7 @@
         <div class="container">
             <ul class="nav page-navigation">
               <li class="nav-item">
-                <a class="nav-link" href="#!">
+                <a class="nav-link" href="#!" id='btnDashboard'>
                   <i class="mdi mdi-file-document-box menu-icon"></i>
                   <span class="menu-title">Dashboard</span>
                 </a>
@@ -41,7 +42,7 @@
                   <div class="submenu">
                       <ul>
                         <li class="nav-item"><a class="nav-link" href="#!">Produk</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Kategori</a></li>
+                       
                         <li class="nav-item"><a class="nav-link" href="#!">Supplier</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Pelanggan</a></li>
                       </ul>
@@ -61,13 +62,7 @@
                     <i class="menu-arrow"></i>
                   </a>
               </li>
-              <li class="nav-item">
-                  <a href="ladun/login/pages/tables/basic-table.html" class="nav-link">
-                    <i class="mdi mdi-grid menu-icon"></i>
-                    <span class="menu-title">Tables</span>
-                    <i class="menu-arrow"></i>
-                  </a>
-              </li>
+             
              
               
               <li class="nav-item">
@@ -78,8 +73,10 @@
                   </a>
                   <div class="submenu">
                       <ul class="submenu-item">
+                          <li class="nav-item"><a class="nav-link" href="#!">Retur Pembelian</a></li>
                           <li class="nav-item"><a class="nav-link" href="#!">Biaya</a></li>
-                          <li class="nav-item"><a class="nav-link" href="#!">Pengguna</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#!" id='btnKategori'>Kategori</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#!">Daerah</a></li>
                       </ul>
                   </div>
               </li>
@@ -92,11 +89,19 @@
                   </a>
                   <div class="submenu">
                       <ul class="submenu-item">
-
-                          <li class="nav-item"><a class="nav-link" href="pages/samples/register-2.html">Manajemen Akun 2</a></li>
-                          <li class="nav-item"><a class="nav-link" href="{{url('/logOut')}}">Logout</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#!">Setting Usaha</a></li>
+                          <li class="nav-item"><a class="nav-link" href="#!">Manajemen Akun</a></li>
+                        
                       </ul>
                   </div>
+              </li>
+
+              <li class="nav-item">
+                  <a href="{{ url('/logOut') }}" class="nav-link">
+                    <i class="mdi mdi mdi-logout menu-icon"></i>
+                    <span class="menu-title">Logout</span>
+                    <i class="menu-arrow"></i>
+                  </a>
               </li>
               
             </ul>
@@ -136,6 +141,7 @@
     <!-- End plugin js for this page-->
     <!-- inject:js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script src="ladun/login/js/template.js"></script>
     <!-- endinject -->
     <!-- plugin js for this page -->

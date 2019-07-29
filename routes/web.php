@@ -22,6 +22,11 @@ Route::post('/prosesLogin','PageCon@loginProses');
 Route::get('/dashboard', 'DashboardCon@home');
 Route::get('/beranda','DashboardCon@beranda');
 
+//kategori
+Route::get('/kategori/tampil','DashboardCon@kategoriTampil');
+Route::post('/kategori/tambahProses','DashboardCon@kategoriTambahProses');
+
+
 //untuk proses login
 Route::get('/logOut', 'DashboardCon@logOut');
 

@@ -1,4 +1,5 @@
-<div class="row">
+<h3>Selamat Datang di Aplikasi POS (Point of Sales)</h3>
+<div class="row mt-3">
 						<div class="col-lg-2 grid-margin stretch-card">
 							<div class="card">
 								<div class="card-body pb-0">
@@ -8,7 +9,7 @@
 									</div>
 								</div>
 								<canvas id="newClient"></canvas>
-								<div class="line-chart-row-title">MY NEW CLIENTS</div>
+								<div class="line-chart-row-title">Profit Bulan Ini</div>
 							</div>
 						</div>
 						<div class="col-lg-2 grid-margin stretch-card">
