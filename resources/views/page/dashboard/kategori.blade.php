@@ -2,19 +2,10 @@
 <div class='mb-3'>
     
 <h4>List kategori</h4>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Tambah Kategori</button>    
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        Tambah kategori
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-       
-      </div>
-      <div class="modal-body">
+<button class='btn btn-primary mr-2' id='btnTampilForm'>Tambah</button>
+<div class='col-4 mt-4 mb-4' id='divFormTambah'>
 
-                  <form class="forms-sample">
+<form class="forms-sample">
                     <div class="form-group">
                       <label for="txtKode">Kode</label>
                       <input type="text" class="form-control" id="txtKode" placeholder="Kode Kategori">
@@ -24,17 +15,9 @@
                       <input type="email" class="form-control" id="txtNama" placeholder="Nama Kategori">
                     </div>
                     
-                    <button type="button" class="btn btn-primary mr-2" data-dismiss="modal" id='btnProTambah'>Tambah</button>
-                   
+                    <button type="button" class="btn btn-primary mr-2" data-dismiss="modal" id='btnProTambah'>Simpan</button>
+                    <a href='#!' id='btnTutupForm'>Tutup</a>
                   </form>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
 </div>
 </div>
 
@@ -66,20 +49,31 @@
 <script>
 $(document).ready(function(){
     $('#table_id').DataTable();
-
+    $('#divFormTambah').hide();
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
         window.alert(id);
     });
 
+    $('#btnTampilForm').click(function(){
+      $('#divFormTambah').show();
+    });
+
+    $('#btnTutupForm').click(function(){
+      $('#divFormTambah').hide();
+    });
+
     $('#btnProTambah').click(function(){
         var kode = $('#txtKode').val();
         var nama = $('#txtNama').val();
-        $.post('/kategori/tambahProses',{'kode':kode,'nama':nama},function(data){
-           
-          
+
+        if(kode=="" && nama ==""){
+          window.alert("Harap isi kode & nama kategori!!");
+        }else{
+          $.post('/kategori/tambahProses',{'kode':kode,'nama':nama},function(data){          
             $('#divUtama').load('kategori/tampil');
         });
+        }
     });
 
 });
