@@ -52,7 +52,7 @@ $(document).ready(function(){
     $('#divFormTambah').hide();
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
-        window.alert(id);
+        
     });
 
     $('#btnTampilForm').click(function(){
