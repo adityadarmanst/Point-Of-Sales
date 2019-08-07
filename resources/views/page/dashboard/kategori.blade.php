@@ -53,7 +53,7 @@ $(document).ready(function(){
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
         $.post('/kategori/editData',{'id':id},function(data){
-
+          
         });
     });
 
