@@ -56,7 +56,9 @@
         <td>{{$loop -> iteration}}</td>
         <td>{{$kat -> kode}}</td>
         <td>{{$kat -> nama}}</td>
-        <td><button class='btn btn-primary btnEdit' id='{{$kat -> kode}}'>Edit</button></td>
+        <td><button class='btn btn-primary btnEdit' id='{{$kat -> kode}}'>Edit</button> &nbsp;
+        <button class='btn btn-warning btnHapus' id='{{$kat -> kode}}'>Hapus</button>
+        </td>
     </tr>
     @endforeach
 </tbody>
