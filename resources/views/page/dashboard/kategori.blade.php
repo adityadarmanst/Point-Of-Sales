@@ -133,12 +133,21 @@ $(document).ready(function(){
         confirmButtonText: 'Ya, Hapus!'
       }).then((result) => {
         if (result.value) {
-          $.post('/kategori/hapusProses')
-          Swal.fire(
-            'Terhapus!',
-            'Kategori berhasil di hapus ',
-            'success'
-          );
+          $.post('/kategori/hapusProses',{'idKategori':idKategori},function(data){
+            let status = data.status;
+            if(status == "berhasil"){
+              Swal.fire(
+                'Terhapus!',
+                'Kategori berhasil di hapus ',
+                'success'
+              );
+              $('#divUtama').html("Memuat ..");
+              $('#divUtama').load('kategori/tampil');
+            }else{
+
+            }
+          });
+          
         }
     });
 

@@ -18,7 +18,6 @@ class kategoriCon extends Controller
         $kode = $request -> kode;
         $nama = $request -> nama;
         DB::table('tbl_kategori')->insert(['kode' => $kode, 'nama' => $nama, 'active' => 'y']);
-        
     }
 
     public function kategoriEditData(Request $request)
@@ -27,6 +26,14 @@ class kategoriCon extends Controller
         $dataKategori = DB::table('tbl_kategori') -> where('kode',$id) -> first();
         return \Response::json($dataKategori);
       
+    }
+
+    public function kategoriHapusProses(Request $request)
+    {
+        $id = $request -> idKategori;
+        $data['status'] = 'berhasil';
+        DB::table('tbl_kategori') -> where('kode',$id) -> delete();
+        return \Response::json($data);
     }
 
 
