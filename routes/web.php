@@ -24,9 +24,9 @@ Route::get('/beranda','DashboardCon@beranda');
 
 //kategori
 Route::get('/kategori/tampil','KategoriCon@kategoriTampil');
-Route::post('/kategori/tambahProses','DashboardCon@kategoriTambahProses');
+Route::post('/kategori/tambahProses','KategoriCon@kategoriTambahProses');
 Route::post('/kategori/hapusProses','DashboardCon@kategoriHapusProses');
-Route::post('/kategori/EditData','DashboardCon@kategoriEditData');
+Route::post('/kategori/editData','KategoriCon@kategoriEditData');
 
 //untuk proses login
 Route::get('/logOut', 'DashboardCon@logOut');

@@ -78,7 +78,7 @@ $(document).ready(function(){
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
         $('#divFormTambah').hide();
-        $.post('/kategori/EditData',{'id':id},function(data){
+        $.post('/kategori/editData',{'id':id},function(data){
           //let obj = data.nama;
           let namaUp = data.nama;
           let idUp = data.id;
