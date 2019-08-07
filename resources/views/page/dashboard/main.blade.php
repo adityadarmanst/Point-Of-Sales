@@ -16,6 +16,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="ladun/login/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
     <!-- endinject -->
     <link rel="shortcut icon" href="ladun/login/images/favicon.png" />
   </head>

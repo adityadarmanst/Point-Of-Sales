@@ -10,6 +10,7 @@ $(document).ready(function(){
     $('#divUtama').load('beranda');
    
 
+
     $('#btnKategori').click(function(){
         $('#divUtama').html("Memuat ..");
         $('#divUtama').load('kategori/tampil');

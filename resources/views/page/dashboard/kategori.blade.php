@@ -7,7 +7,7 @@ $kodeBarang = substr($acak, 0, 4);
 <div class='mb-3'>
     
 <h4>List kategori</h4>
-<button class='btn btn-primary mr-2' id='btnTampilForm'>Tambah</button>
+<button class='btn btn-primary mr-2' id='btnTampilForm'><i class="mdi mdi-database-plus"></i> Tambah</button>
 <div class='col-4 mt-4 mb-4' id='divFormTambah'>
 
 <form class="forms-sample">
@@ -106,10 +106,42 @@ $(document).ready(function(){
           window.alert("Harap isi kode & nama kategori!!");
         }else{
           $.post('/kategori/tambahProses',{'kode':kode,'nama':nama},function(data){
-            $('#divUtama').html("Memuat ..");          
+            $('#divUtama').html("Memuat ..");
+            Swal.fire(
+              'Status simpan',
+              'Kategori berhasil di tambah',
+              'success'
+            );          
             $('#divUtama').load('kategori/tampil');
         });
         }
+    });
+
+    $('#btnUpdate').click(function(){
+      window.alert("Data");
+    });
+
+    $('.btnHapus').click(function(){
+      let idKategori = $(this).attr('id');
+      Swal.fire({
+        title: 'Hapus kategori?',
+        text: "Apakah kamu yakin menghapus kategori "+ idKategori +"?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+      }).then((result) => {
+        if (result.value) {
+          $.post('/kategori/hapusProses')
+          Swal.fire(
+            'Terhapus!',
+            'Kategori berhasil di hapus ',
+            'success'
+          );
+        }
+    });
+
     });
 
     $('#btnTutupFormUp').click(function(){
