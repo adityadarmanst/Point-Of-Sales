@@ -23,7 +23,7 @@ Route::get('/dashboard', 'DashboardCon@home');
 Route::get('/beranda','DashboardCon@beranda');
 
 //kategori
-Route::get('/kategori/tampil','DashboardCon@kategoriTampil');
+Route::get('/kategori/tampil','KategoriCon@kategoriTampil');
 Route::post('/kategori/tambahProses','DashboardCon@kategoriTambahProses');
 Route::post('/kategori/hapusProses','DashboardCon@kategoriHapusProses');
 Route::post('/kategori/EditData','DashboardCon@kategoriEditData');

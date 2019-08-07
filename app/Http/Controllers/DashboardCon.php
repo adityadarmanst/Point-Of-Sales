@@ -21,12 +21,6 @@ class DashboardCon extends Controller
         return view('page.dashboard.beranda');
     }
 
-    public function kategoriTampil()
-    {
-        $kategori = DB::table('tbl_kategori') -> get();
-        return view('page.dashboard.kategori',['kategori' => $kategori]);
-    }
-
     public function kategoriTambahProses(Request $request)
     {
         $kode = $request -> kode;
