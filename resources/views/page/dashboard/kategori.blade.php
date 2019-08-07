@@ -21,6 +21,23 @@
 </div>
 </div>
 
+<div class='col-4 mt-4 mb-4' id='divFormUpdate'>
+
+<form class="forms-sample">
+                    <div class="form-group">
+                      <label for="txtKode">Kode</label>
+                      <input type="text" class="form-control" id="txtKodeUp" placeholder="Kode Kategori">
+                    </div>
+                    <div class="form-group">
+                      <label for="txtNama">Nama Kategori</label>
+                      <input type="email" class="form-control" id="txtNamaUp" placeholder="Nama Kategori">
+                    </div>
+                    
+                    <button type="button" class="btn btn-primary mr-2" data-dismiss="modal" id='btnUpdate'>Update</button>
+                    <a href='#!' id='btnTutupFormUp'>Tutup</a>
+                  </form>
+</div>
+</div>
 
 <table id='table_id'>
 
@@ -50,10 +67,12 @@
 $(document).ready(function(){
     $('#table_id').DataTable();
     $('#divFormTambah').hide();
+    $('#divFormUpdate').hide();
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
-        $.post('/kategori/editData',{'id':id},function(data){
-          
+        $.post('/kategori/EditData',{'id':id},function(data){
+          console.log(data);
+          $('#divFormUpdate').show();
         });
     });
 
@@ -78,5 +97,6 @@ $(document).ready(function(){
         }
     });
 
+  
 });
 </script>

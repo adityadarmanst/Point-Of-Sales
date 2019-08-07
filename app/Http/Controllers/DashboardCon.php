@@ -35,6 +35,11 @@ class DashboardCon extends Controller
         
     }
 
+    public function kategoriEditData()
+    {
+        return 'Data';
+    }
+
     public function logOut()
     {
         session()->flush();
