@@ -71,7 +71,10 @@ $(document).ready(function(){
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
         $.post('/kategori/EditData',{'id':id},function(data){
-          console.log(data);
+          //let obj = data.nama;
+          let nama = data.nama;
+          $('#txtNamaUp').val(nama);
+          $("html, body").animate({ scrollTop: 0 }, "slow");
           $('#divFormUpdate').show();
         });
     });

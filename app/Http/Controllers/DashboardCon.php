@@ -35,9 +35,12 @@ class DashboardCon extends Controller
         
     }
 
-    public function kategoriEditData()
-    {
-        return 'Data';
+    public function kategoriEditData(Request $request)
+    {   
+        $id = $request -> id;
+        $dataKategori = DB::table('tbl_kategori') -> where('kode',$id) -> first();
+        return \Response::json($dataKategori);
+      
     }
 
     public function logOut()
