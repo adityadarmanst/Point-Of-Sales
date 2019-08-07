@@ -26,7 +26,7 @@
 <form class="forms-sample">
                     <div class="form-group">
                       <label for="txtKode">Kode</label>
-                      <input type="text" class="form-control" id="txtKodeUp" placeholder="Kode Kategori">
+                      <input type="text" class="form-control " disabled id="txtKodeUp" placeholder="Kode Kategori">
                     </div>
                     <div class="form-group">
                       <label for="txtNama">Nama Kategori</label>
@@ -68,12 +68,16 @@ $(document).ready(function(){
     $('#table_id').DataTable();
     $('#divFormTambah').hide();
     $('#divFormUpdate').hide();
+
     $('.btnEdit').click(function(){
         var id = $(this).attr('id');
+        $('#divFormTambah').hide();
         $.post('/kategori/EditData',{'id':id},function(data){
           //let obj = data.nama;
-          let nama = data.nama;
-          $('#txtNamaUp').val(nama);
+          let namaUp = data.nama;
+          let idUp = data.id;
+          $('#txtNamaUp').val(namaUp);
+          $('#txtKodeUp').val(idUp);
           $("html, body").animate({ scrollTop: 0 }, "slow");
           $('#divFormUpdate').show();
         });
@@ -81,6 +85,7 @@ $(document).ready(function(){
 
     $('#btnTampilForm').click(function(){
       $('#divFormTambah').show();
+      $('#divFormUpdate').hide();
     });
 
     $('#btnTutupForm').click(function(){
@@ -100,6 +105,9 @@ $(document).ready(function(){
         }
     });
 
+    $('#btnTutupFormUp').click(function(){
+      $('#divFormUpdate').hide();
+    });
   
 });
 </script>
