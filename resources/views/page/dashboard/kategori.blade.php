@@ -86,11 +86,13 @@ $(document).ready(function(){
           $('#txtKodeUp').val(idUp);
           $("html, body").animate({ scrollTop: 0 }, "slow");
           $('#divFormUpdate').show();
+          $('#txtNamaUp').focus();
         });
     });
 
     $('#btnTampilForm').click(function(){
       $('#divFormTambah').show();
+      $('#txtNama').focus();
       $('#divFormUpdate').hide();
     });
 
