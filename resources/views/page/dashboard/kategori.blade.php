@@ -81,7 +81,7 @@ $(document).ready(function(){
         $.post('/kategori/editData',{'id':id},function(data){
           //let obj = data.nama;
           let namaUp = data.nama;
-          let idUp = data.id;
+          let idUp = data.kode;
           $('#txtNamaUp').val(namaUp);
           $('#txtKodeUp').val(idUp);
           $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -99,8 +99,8 @@ $(document).ready(function(){
     });
 
     $('#btnProTambah').click(function(){
-        var kode = $('#txtKode').val();
-        var nama = $('#txtNama').val();
+        let kode = $('#txtKode').val();
+        let nama = $('#txtNama').val();
 
         if(kode=="" && nama ==""){
           window.alert("Harap isi kode & nama kategori!!");
@@ -118,7 +118,22 @@ $(document).ready(function(){
     });
 
     $('#btnUpdate').click(function(){
-      window.alert("Data");
+      let kode = $('#txtKodeUp').val();
+      let nama = $('#txtNamaUp').val();
+      $.post('/kategori/editProses',{'kode':kode,'nama':nama},function(data){
+        console.log(data);
+        if(data.status == 'berhasil'){
+          Swal.fire(
+                'Terupdate!',
+                'Kategori berhasil di update ',
+                'success'
+              );
+        }else{
+
+        }
+        $('#divUtama').html("Memuat ..");
+        $('#divUtama').load('kategori/tampil');
+      });
     });
 
     $('.btnHapus').click(function(){
