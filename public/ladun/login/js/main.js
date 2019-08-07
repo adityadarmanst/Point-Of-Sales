@@ -6,15 +6,17 @@ $(document).ready(function(){
         }
     });
 
-
+    $('#divUtama').html("Memuat ..");
     $('#divUtama').load('beranda');
    
 
     $('#btnKategori').click(function(){
+        $('#divUtama').html("Memuat ..");
         $('#divUtama').load('kategori/tampil');
     }); 
 
     $('#btnDashboard').click(function(){
+        $('#divUtama').html("Memuat ..");
         $('#divUtama').load('beranda');
     });
 

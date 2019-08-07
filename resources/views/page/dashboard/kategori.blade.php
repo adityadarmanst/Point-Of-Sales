@@ -1,4 +1,9 @@
 
+<?php
+$bahanKode = "0981234561223";
+$acak = str_shuffle($bahanKode);
+$kodeBarang = substr($acak, 0, 4);
+?>
 <div class='mb-3'>
     
 <h4>List kategori</h4>
@@ -8,7 +13,7 @@
 <form class="forms-sample">
                     <div class="form-group">
                       <label for="txtKode">Kode</label>
-                      <input type="text" class="form-control" id="txtKode" placeholder="Kode Kategori">
+                      <input type="text" class="form-control" id="txtKode" disabled placeholder="Kode Kategori" value='{{$kodeBarang}}'>
                     </div>
                     <div class="form-group">
                       <label for="txtNama">Nama Kategori</label>
@@ -46,8 +51,7 @@
         <td>No</td>
         <td>Kode</td>
         <td>Nama</td>
-       
-        <td>Aksi</td>
+        <td style='width:30%;'>Aksi</td>
     </tr>
 </thead>
 <tbody>
@@ -56,8 +60,8 @@
         <td>{{$loop -> iteration}}</td>
         <td>{{$kat -> kode}}</td>
         <td>{{$kat -> nama}}</td>
-        <td><button class='btn btn-primary btnEdit' id='{{$kat -> kode}}'>Edit</button> &nbsp;
-        <button class='btn btn-warning btnHapus' id='{{$kat -> kode}}'>Hapus</button>
+        <td><button class='btn btn-primary btnEdit' id='{{$kat -> kode}}'><i class="mdi mdi-grease-pencil"></i> Edit</button> &nbsp;
+        <button class='btn btn-warning btnHapus' id='{{$kat -> kode}}'><i class="mdi mdi mdi-delete"></i> Hapus</button>
         </td>
     </tr>
     @endforeach
@@ -101,7 +105,8 @@ $(document).ready(function(){
         if(kode=="" && nama ==""){
           window.alert("Harap isi kode & nama kategori!!");
         }else{
-          $.post('/kategori/tambahProses',{'kode':kode,'nama':nama},function(data){          
+          $.post('/kategori/tambahProses',{'kode':kode,'nama':nama},function(data){
+            $('#divUtama').html("Memuat ..");          
             $('#divUtama').load('kategori/tampil');
         });
         }
