@@ -16,11 +16,14 @@ Route::get('/about','PageCon@about');
 
 // Untuk login proses
 Route::post('/prosesLogin','PageCon@loginProses');
-  
+
 
 //halaman dashboard
 Route::get('/dashboard', 'DashboardCon@home');
 Route::get('/beranda','DashboardCon@beranda');
+
+//halaman supplier
+Route::get('/supplier/tampil','SupplierCon@supplierTampil');
 
 //kategori
 Route::get('/kategori/tampil','KategoriCon@kategoriTampil');
@@ -28,7 +31,7 @@ Route::post('/kategori/tambahProses','KategoriCon@kategoriTambahProses');
 Route::post('/kategori/hapusProses','KategoriCon@kategoriHapusProses');
 Route::post('/kategori/editData','KategoriCon@kategoriEditData');
 Route::post('/kategori/editProses','KategoriCon@kategoriEditProses');
-//untuk proses login
+//untuk proses logout
 Route::get('/logOut', 'DashboardCon@logOut');
 
 
@@ -36,6 +39,3 @@ Route::get('/logOut', 'DashboardCon@logOut');
 Route::post('/testJson','pageCon@testJson');
 Route::post('/updateSup', 'pageCon@updateSup');
 Route::get('/editForm', 'PageCon@editForm');
-
-
-
