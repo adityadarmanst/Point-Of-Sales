@@ -30,7 +30,13 @@
 </table>
 </div>
 <script>
-$(document).ready(function(){
-  $('#table_id').DataTable();
-});
+  $(document).ready(function(){
+    $('#table_id').DataTable();
+
+    $('.btnEdit').click(function(){
+      let kodeSup = $(this).attr('id');
+      window.alert(kodeSup);
+    });
+
+  });
 </script>
