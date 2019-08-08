@@ -8,13 +8,16 @@ $(document).ready(function(){
 
     $('#divUtama').html("Memuat ..");
     $('#divUtama').load('beranda');
-   
-
 
     $('#btnKategori').click(function(){
         $('#divUtama').html("Memuat ..");
         $('#divUtama').load('kategori/tampil');
-    }); 
+    });
+
+    $('#btnSupplier').click(function(){
+        $('#divUtama').html("Memuat ..");
+        $('#divUtama').load('supplier/tampil');
+    });
 
     $('#btnDashboard').click(function(){
         $('#divUtama').html("Memuat ..");

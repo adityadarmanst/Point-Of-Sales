@@ -24,7 +24,7 @@
     <div class="container-scroller">
 		<!-- partial:partials/_horizontal-navbar.html -->
     <div class="horizontal-menu">
-     
+
       <nav class="bottom-navbar">
         <div class="container">
             <ul class="nav page-navigation">
@@ -43,8 +43,8 @@
                   <div class="submenu">
                       <ul>
                         <li class="nav-item"><a class="nav-link" href="#!">Produk</a></li>
-                       
-                        <li class="nav-item"><a class="nav-link" href="#!">Supplier</a></li>
+
+                        <li class="nav-item"><a class="nav-link" href="#!" id='btnSupplier'>Supplier</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Pelanggan</a></li>
                       </ul>
                   </div>
@@ -63,9 +63,9 @@
                     <i class="menu-arrow"></i>
                   </a>
               </li>
-             
-             
-              
+
+
+
               <li class="nav-item">
                   <a href="#" class="nav-link">
                     <i class="mdi mdi-codepen menu-icon"></i>
@@ -92,7 +92,7 @@
                       <ul class="submenu-item">
                           <li class="nav-item"><a class="nav-link" href="#!">Setting Usaha</a></li>
                           <li class="nav-item"><a class="nav-link" href="#!">Manajemen Akun</a></li>
-                        
+
                       </ul>
                   </div>
               </li>
@@ -104,18 +104,18 @@
                     <i class="menu-arrow"></i>
                   </a>
               </li>
-              
+
             </ul>
         </div>
       </nav>
     </div>
     <!-- partial -->
-    
+
 		<div class="container-fluid page-body-wrapper">
 			<div class="main-panel">
 				<div class="content-wrapper" id='divUtama'>
-        
-							
+
+
 				</div>
 				<!-- content-wrapper ends -->
 				<!-- partial:partials/_footer.html -->
@@ -155,7 +155,7 @@
     <!-- Custom js for this page-->
     <script src="ladun/login/js/dashboard.js"></script>
     <script src="ladun/login/js/main.js"></script>
-    
+
     <!-- End custom js for this page-->
   </body>
 </html>
