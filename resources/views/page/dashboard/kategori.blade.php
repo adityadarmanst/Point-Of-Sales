@@ -5,7 +5,7 @@ $acak = str_shuffle($bahanKode);
 $kodeBarang = substr($acak, 0, 4);
 ?>
 <div class='mb-3'>
-    
+
 <h4>List kategori</h4>
 <button class='btn btn-primary mr-2' id='btnTampilForm'><i class="mdi mdi-database-plus"></i> Tambah</button>
 <div class='col-4 mt-4 mb-4' id='divFormTambah'>
@@ -19,7 +19,7 @@ $kodeBarang = substr($acak, 0, 4);
                       <label for="txtNama">Nama Kategori</label>
                       <input type="email" class="form-control" id="txtNama" placeholder="Nama Kategori">
                     </div>
-                    
+
                     <button type="button" class="btn btn-primary mr-2" data-dismiss="modal" id='btnProTambah'>Simpan</button>
                     <a href='#!' id='btnTutupForm'>Tutup</a>
                   </form>
@@ -37,7 +37,7 @@ $kodeBarang = substr($acak, 0, 4);
                       <label for="txtNama">Nama Kategori</label>
                       <input type="email" class="form-control" id="txtNamaUp" placeholder="Nama Kategori">
                     </div>
-                    
+
                     <button type="button" class="btn btn-primary mr-2" data-dismiss="modal" id='btnUpdate'>Update</button>
                     <a href='#!' id='btnTutupFormUp'>Tutup</a>
                   </form>
@@ -76,7 +76,7 @@ $(document).ready(function(){
     $('#divFormUpdate').hide();
 
     $('.btnEdit').click(function(){
-        var id = $(this).attr('id');
+        let id = $(this).attr('id');
         $('#divFormTambah').hide();
         $.post('/kategori/editData',{'id':id},function(data){
           //let obj = data.nama;
@@ -113,7 +113,7 @@ $(document).ready(function(){
               'Status simpan',
               'Kategori berhasil di tambah',
               'success'
-            );          
+            );
             $('#divUtama').load('kategori/tampil');
         });
         }
@@ -164,7 +164,7 @@ $(document).ready(function(){
 
             }
           });
-          
+
         }
     });
 
@@ -173,6 +173,6 @@ $(document).ready(function(){
     $('#btnTutupFormUp').click(function(){
       $('#divFormUpdate').hide();
     });
-  
+
 });
 </script>

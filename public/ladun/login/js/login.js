@@ -10,8 +10,8 @@ $(document).ready(function(){
     capNotif.hide();
 
     $('#btnMasuk').click(function(){
-        var username = $('#txtUsername').val();
-        var password = $('#txtPassword').val();
+        let username = $('#txtUsername').val();
+        let password = $('#txtPassword').val();
 
         if(username === '' || password === ''){
             capNotif.removeClass('alert-danger');
@@ -21,8 +21,8 @@ $(document).ready(function(){
             setTimeout(tutupCapNotif, 2000);
         }else{
             $.post('/prosesLogin',{'username':username,'password':password}, function(data){
-                
-                var statusLogin = data.statusLogin;
+
+                let statusLogin = data.statusLogin;
                 console.log(data);
                 if(statusLogin === 'no_username'){
                     capNotif.removeClass('alert-warning');
@@ -35,14 +35,14 @@ $(document).ready(function(){
                     capNotif.removeClass('alert-success').addClass('alert-danger');
                     capNotif.html('Username / Password salah!!');
                     capNotif.show();
-                    setTimeout(tutupCapNotif, 2000);               
+                    setTimeout(tutupCapNotif, 2000);
                 }else{
                    window.location.assign('/dashboard');
                 }
 
             });
         }
-        
+
     });
 
     function tutupCapNotif(){
