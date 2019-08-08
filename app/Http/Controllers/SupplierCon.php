@@ -12,4 +12,9 @@ class SupplierCon extends Controller
             $supplier = DB::table('tbl_supplier') -> get();
             return view('page.dashboard.supplier',['supplier' => $supplier]);
     }
+
+    public function supplierFormTambahTampil()
+    {
+      return view('page.dashboard.formTambahSupplier');
+    }
 }
