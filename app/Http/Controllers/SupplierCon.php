@@ -7,4 +7,8 @@ use Illuminate\Http\Request;
 class SupplierCon extends Controller
 {
     //
+    public function supplierTampil()
+    {
+        
+    }
 }
