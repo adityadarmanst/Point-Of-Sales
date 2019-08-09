@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
     $.ajaxSetup({
@@ -5,6 +6,7 @@ $(document).ready(function(){
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
 
     var capNotif = $('#capNotifLogin');
     capNotif.hide();

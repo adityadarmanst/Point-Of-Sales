@@ -50,7 +50,7 @@
                   </div>
               </li>
               <li class="nav-item">
-                  <a href="pages/forms/basic_elements.html" class="nav-link">
+                  <a href="#!" class="nav-link">
                     <i class="mdi mdi mdi-cart-outline menu-icon"></i>
                     <span class="menu-title">Pembelian</span>
                     <i class="menu-arrow"></i>
@@ -106,6 +106,9 @@
               </li>
 
             </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <span class="mdi mdi-menu"></span>
+            </button>
         </div>
       </nav>
     </div>
