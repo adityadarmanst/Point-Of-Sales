@@ -13,7 +13,7 @@
       <tr>
           <td>No</td>
           <td>Kode</td>
-          <td>Nama / Kategori / Satuan</td>
+          <td>Nama Produk</td>
           <td>Deks</td>
 
           <td>Harga Jual</td>
@@ -30,7 +30,7 @@
       <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$pro -> kode}}</td>
-      <td>{{$pro -> nama}} - {{$kat -> nama}}<br/><small>Satuan : {{$pro -> satuan}}</small></td>
+      <td>{{$pro -> nama}} <br/>  <small> Tipe : {{$kat -> nama}}</small><br/><small>Satuan : {{$pro -> satuan}}</small></td>
       <td>{{$pro -> deksripsi}}</td>
       <td>{{$pro -> harga_jual}}</td>
       <td>{{$pro -> stok}}</td>
