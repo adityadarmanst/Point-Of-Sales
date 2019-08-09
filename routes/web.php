@@ -26,6 +26,7 @@ Route::get('/beranda','DashboardCon@beranda');
 Route::get('/supplier/tampil','SupplierCon@supplierTampil');
 Route::get('/supplier/formTambahTampil','SupplierCon@supplierFormTambahTampil');
 Route::post('/supplier/prosesTambah','SupplierCon@supplierProsesTambah');
+Route::post('/supplier/formEditTampil','SupplierCon@supplierFormEditTampil');
 //kategori
 Route::get('/kategori/tampil','KategoriCon@kategoriTampil');
 Route::post('/kategori/tambahProses','KategoriCon@kategoriTambahProses');

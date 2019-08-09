@@ -30,4 +30,12 @@ class SupplierCon extends Controller
         DB::table('tbl_supplier')->insert(['kode' => $kodeSup, 'nama_lengkap' => $namaSup, 'alamat' => $alamatSup, 'no_hp' => $hpSup, 'email' => $emailSup, 'active' => 'y', 'created_at' => $createdAt ]);
         return \Response::json($data);
     }
+
+    public function supplierFormEditTampil(Request $request)
+    {
+      $kodeSup = $request -> kodeSup;
+      $dataSupplier = DB::table('tbl_supplier') -> where('kode', $kodeSup) -> first();
+      return view('page.dashboard.formEditSupplier',['supplier' => $dataSupplier]);
+    }
+
 }

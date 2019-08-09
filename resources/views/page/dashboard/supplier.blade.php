@@ -44,7 +44,8 @@
 
     $('.btnEdit').click(function(){
       let kodeSup = $(this).attr('id');
-      window.alert(kodeSup);
+      $('#divUtama').html("Memuat ... ");
+      $('#divUtama').load('/supplier/formEditTampil',{'kodeSup':kodeSup});
     });
 
     $('#btnTampilFormTambah').click(function(){
