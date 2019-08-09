@@ -78,7 +78,18 @@ $(document).ready(function(){
           );
       $('#txtNamaLengkap').focus();
     }else{
-        $.post('/supplier/prosesTambah',{'kodeSup':kodeSup},function(data){
+        $.post('/supplier/prosesTambah',{'kodeSup':kodeSup,'namaSup':nama,'alamatSup':alamat,'hpSup':hp,'emailSup':email},function(data){
+          if(data.status == 'berhasil'){
+            Swal.fire(
+                  'Tambah supplier',
+                  'Supplier berhasil di tambahkan',
+                  'success'
+                );
+            $('#divUtama').html("Memuat ...");
+            $('#divUtama').load('supplier/tampil');
+          }else{
+            
+          }
 
         });
     }

@@ -22,6 +22,7 @@
   </thead>
   <tbody>
       @foreach($supplier as $sup)
+      <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$sup -> kode}}</td>
       <td>{{$sup -> nama_lengkap}}</td>
@@ -29,6 +30,7 @@
       <td>{{$sup -> no_hp}}</td>
       <td></td>
       <td><button class='btn btn-primary btnEdit' id='{{$sup -> kode}}'><i class="mdi mdi-grease-pencil"></i> Edit</button></td>
+    </tr>
       @endforeach
   </tbody>
   </table>

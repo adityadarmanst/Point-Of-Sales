@@ -20,6 +20,13 @@ class SupplierCon extends Controller
 
     public function supplierProsesTambah(Request $request)
     {
-
+        $kodeSup = $request -> kodeSup;
+        $namaSup = $request -> namaSup;
+        $alamatSup = $request -> alamatSup;
+        $emailSup = $request -> emailSup;
+        $hpSup = $request -> hpSup;
+        $data['status'] = 'berhasil';
+        DB::table('tbl_supplier')->insert(['kode' => $kodeSup, 'nama_lengkap' => $namaSup, 'alamat' => $alamatSup, 'no_hp' => $hpSup, 'email' => $emailSup, 'active' => 'y']);
+        return \Response::json($data);
     }
 }
