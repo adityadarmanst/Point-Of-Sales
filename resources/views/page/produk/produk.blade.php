@@ -15,7 +15,7 @@
           <td>Kode</td>
           <td>Nama / Kategori / Satuan</td>
           <td>Deks</td>
-          <td>Harga Beli</td>
+          
           <td>Harga Jual</td>
           <td>Stok</td>
           <td style='width:20%;'>Aksi</td>
@@ -28,7 +28,7 @@
       <td>{{$pro -> kode}}</td>
       <td>{{$pro -> nama}}<br/><small>{{$pro -> satuan}}</small></td>
       <td>{{$pro -> deksripsi}}</td>
-      <td>{{$pro -> harga_beli}}</td>
+
       <td>{{$pro -> harga_jual}}</td>
       <td>{{$pro -> stok}}</td>
       <td><button class='btn btn-primary btnEdit' id='{{$pro -> kode}}'><i class="mdi mdi-grease-pencil"></i> Edit</button>
@@ -53,7 +53,7 @@
 
     $('#btnTampilFormTambah').click(function(){
       $('#divUtama').html("Memuat ... ");
-      $('#divUtama').load('/supplier/formTambahTampil');
+      $('#divUtama').load('/produk/formTambahTampil');
     });
 
     $('.btnHapus').click(function(){

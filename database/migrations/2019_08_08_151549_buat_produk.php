@@ -15,12 +15,11 @@ class BuatProduk extends Migration
     {
       Schema::create('tbl_produk', function(Blueprint $table){
           $table->bigIncrements('id');
-          $table->string('kode', 5);
+          $table->string('kode', 10);
           $table->string('nama', 100);
           $table->string('kategori',50);
           $table->string('satuan',20);
           $table->text('deksripsi');
-          $table->integer('harga_beli');
           $table->integer('harga_jual');
           $table->integer('stok');
           $table->timestamps();

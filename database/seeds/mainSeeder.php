@@ -42,7 +42,6 @@ class mainSeeder extends Seeder
             'kategori' => '0001',
             'satuan' => 'bungkus',
             'deksripsi' => 'produk contoh',
-            'harga_beli' => 2000,
             'harga_jual' => 2500,
             'stok' => 0,
             'created_at' => date("Y-m-d H:i:s")
