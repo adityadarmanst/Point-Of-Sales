@@ -12,4 +12,9 @@ class ProdukCon extends Controller
       $produk = DB::table('tbl_produk') -> get();
       return view('page.produk.produk',['produk' => $produk]);
     }
+
+    public function produkFormTambahTampil()
+    {  
+      return view('page.produk.formTambahProduk');
+    }
 }
