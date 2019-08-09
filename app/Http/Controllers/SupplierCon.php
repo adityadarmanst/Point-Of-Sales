@@ -38,4 +38,18 @@ class SupplierCon extends Controller
       return view('page.dashboard.formEditSupplier',['supplier' => $dataSupplier]);
     }
 
+    public function supplierProsesEdit(Request $request)
+    {
+      // 'kodeSup':kodeSup,'namaSup':nama,'alamatSup':alamat,'hpSup':hp,'emailSup':email
+      $data['status'] = 'berhasil';
+      $kodeSup = $request -> kodeSup;
+      $namaSup = $request -> namaSup;
+      $alamatSup = $request -> alamatSup;
+      $hpSup = $request -> hpSup;
+      $emailSup = $request -> emailSup;
+      $updatedAt = date("Y-m-d H:i:s");
+      DB::table('tbl_supplier') -> where('kode',$kodeSup) -> update(['nama_lengkap' => $namaSup, 'updated_at' => $updatedAt,'alamat' => $alamatSup, 'no_hp' => $hpSup, 'email' => $emailSup]);
+      return \Response::json($data);
+    }
+
 }

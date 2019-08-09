@@ -55,9 +55,45 @@
 
 <script>
 $(document).ready(function(){
+
+  $('#btnUpdate').click(function(){
+
+    let kodeSup = $('#txtKodeSup').val();
+    let nama = $('#txtNamaLengkap').val();
+    let alamat = $('#txtAlamat').val();
+    let hp = $('#txtHp').val();
+    let email = $('#txtEmail').val();
+
+    if(kodeSup == "" || nama == "" || alamat == "" || hp == "" || email == ""){
+      Swal.fire(
+            'Field kosong!!',
+            'Harap perhatikan semua field',
+            'warning'
+          );
+      $('#txtNamaLengkap').focus();
+    }else{
+        $.post('/supplier/prosesEdit',{'kodeSup':kodeSup,'namaSup':nama,'alamatSup':alamat,'hpSup':hp,'emailSup':email},function(data){
+          if(data.status == 'berhasil'){
+            Swal.fire(
+                  'Update supplier',
+                  'Supplier berhasil di update',
+                  'success'
+                );
+            $('#divUtama').html("Memuat ...");
+            $('#divUtama').load('supplier/tampil');
+          }else{
+
+          }
+
+        });
+    }
+
+  });
+
   $('#btnKembali').click(function(){
     $('#divUtama').html("Memuat ..");
     $('#divUtama').load('supplier/tampil');
   });
+
 });
 </script>

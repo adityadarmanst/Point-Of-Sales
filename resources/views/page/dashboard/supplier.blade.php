@@ -13,7 +13,7 @@
       <tr>
           <td>No</td>
           <td>Kode</td>
-          <td>Nama</td>
+          <td>Nama - Email</td>
           <td>Alamat<td>
           <td>Hp</td>
           <td>Total Transaksi</td>
@@ -25,7 +25,7 @@
       <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$sup -> kode}}</td>
-      <td>{{$sup -> nama_lengkap}}</td>
+      <td>{{$sup -> nama_lengkap}}<br/><small>{{$sup -> email}}</small></td>
       <td>{{$sup -> alamat}}<td>
       <td>{{$sup -> no_hp}}</td>
       <td></td>
