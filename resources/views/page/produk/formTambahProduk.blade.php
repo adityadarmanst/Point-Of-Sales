@@ -95,7 +95,12 @@ $(document).ready(function(){
     }else{
       $.post('/produk/tambahProses',{'kodeProduk':kodeProduk,'namaProduk':namaProduk,'satuan':satuan,'kategori':kategori,'deksripsi':deksripsi,'hargaJual':hargaJual},function(data){
         console.log(data);
-       $('#divUtama').html("Memuat ...");
+        Swal.fire(
+              'Tambah produk',
+              'Produk berhasil ditambahkan',
+              'success'
+            );
+        $('#divUtama').html("Memuat ...");
         $('#divUtama').load('produk/tampil');
       });
     }

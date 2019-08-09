@@ -13,6 +13,11 @@ class ProdukCon extends Controller
       return view('page.produk.produk',['produk' => $produk]);
     }
 
+    public function produkAmbilInfoKategori()
+    {
+      return "data";
+    }
+
     public function produkFormTambahTampil()
     {
       $kategori = DB::table('tbl_kategori') -> get();

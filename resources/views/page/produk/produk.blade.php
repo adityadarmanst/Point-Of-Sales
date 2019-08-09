@@ -23,10 +23,14 @@
   </thead>
   <tbody>
       @foreach($produk as $pro)
+      <?php
+        $kat = DB::table('tbl_kategori') -> where('kode', $pro -> kategori) -> first();
+       ?>
+
       <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$pro -> kode}}</td>
-      <td>{{$pro -> nama}}<br/><small>{{$pro -> satuan}}</small></td>
+      <td>{{$pro -> nama}} - {{$kat -> nama}}<br/><small>Satuan : {{$pro -> satuan}}</small></td>
       <td>{{$pro -> deksripsi}}</td>
       <td>{{$pro -> harga_jual}}</td>
       <td>{{$pro -> stok}}</td>
