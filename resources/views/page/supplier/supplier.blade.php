@@ -25,7 +25,7 @@
       <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$sup -> kode}}</td>
-      <td>{{$sup -> nama_lengkap}}<br/><small>{{$sup -> email}}</small></td>
+      <td><a href='#!' class='suppDetails' id='{{$sup -> kode}}'>{{$sup -> nama_lengkap}}</a><br/><small>{{$sup -> email}}</small></td>
       <td>{{$sup -> alamat}}<td>
       <td>{{$sup -> no_hp}}</td>
       <td></td>

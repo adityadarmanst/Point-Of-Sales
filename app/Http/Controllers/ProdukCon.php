@@ -22,6 +22,7 @@ class ProdukCon extends Controller
     public function produkTambahProses(Request $request)
     {
       $data['status'] = 'berhasil';
+      
       return \Response::json($data);
     }
 }
