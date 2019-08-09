@@ -42,8 +42,7 @@
                   </a>
                   <div class="submenu">
                       <ul>
-                        <li class="nav-item"><a class="nav-link" href="#!">Produk</a></li>
-
+                        <li class="nav-item"><a class="nav-link" href="#!" id='btnProduk'>Produk</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!" id='btnSupplier'>Supplier</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">Pelanggan</a></li>
                       </ul>

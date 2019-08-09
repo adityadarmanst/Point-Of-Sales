@@ -10,12 +10,12 @@ class SupplierCon extends Controller
     public function supplierTampil()
     {
             $supplier = DB::table('tbl_supplier') -> get();
-            return view('page.dashboard.supplier',['supplier' => $supplier]);
+            return view('page.supplier.supplier',['supplier' => $supplier]);
     }
 
     public function supplierFormTambahTampil()
     {
-      return view('page.dashboard.formTambahSupplier');
+      return view('page.supplier.formTambahSupplier');
     }
 
     public function supplierProsesTambah(Request $request)
@@ -35,7 +35,7 @@ class SupplierCon extends Controller
     {
       $kodeSup = $request -> kodeSup;
       $dataSupplier = DB::table('tbl_supplier') -> where('kode', $kodeSup) -> first();
-      return view('page.dashboard.formEditSupplier',['supplier' => $dataSupplier]);
+      return view('page.supplier.formEditSupplier',['supplier' => $dataSupplier]);
     }
 
     public function supplierProsesEdit(Request $request)

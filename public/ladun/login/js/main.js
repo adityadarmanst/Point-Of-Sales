@@ -19,6 +19,11 @@ $(document).ready(function(){
         $('#divUtama').load('supplier/tampil');
     });
 
+    $('#btnProduk').click(function(){
+        $('#divUtama').html("Memuat ..");
+        $('#divUtama').load('produk/tampil');
+    });
+
     $('#btnDashboard').click(function(){
         $('#divUtama').html("Memuat ..");
         $('#divUtama').load('beranda');
