@@ -15,7 +15,13 @@ class ProdukCon extends Controller
 
     public function produkFormTambahTampil()
     {
-      $kategori = DB::table('tbl_kategori') -> get(); 
+      $kategori = DB::table('tbl_kategori') -> get();
       return view('page.produk.formTambahProduk',['kategori' => $kategori]);
+    }
+
+    public function produkTambahProses(Request $request)
+    {
+      $data['status'] = 'berhasil';
+      return \Response::json($data);
     }
 }

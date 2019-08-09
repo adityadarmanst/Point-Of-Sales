@@ -38,6 +38,8 @@ Route::post('/kategori/editProses','KategoriCon@kategoriEditProses');
 //Produk
 Route::get('/produk/tampil','ProdukCon@produkTampil');
 Route::get('/produk/formTambahTampil','ProdukCon@produkFormTambahTampil');
+Route::post('/produk/tambahProses','ProdukCon@produkTambahProses');
+
 //untuk proses logout
 Route::get('/logOut', 'DashboardCon@logOut');
 

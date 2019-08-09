@@ -19,8 +19,8 @@ $kodeProduk = substr(str_shuffle($bahanKodeProduk), 0, 10);
                         <input type="text" class="form-control" id="txtKodeSup" disabled placeholder="Kode Supplier" value="{{$kodeProduk}}">
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail1">Nama Produk</label>
-                        <input type="text" class="form-control" id="txtNamaLengkap" placeholder="Nama Lengkap">
+                        <label for="txtNamaProduk">Nama Produk</label>
+                        <input type="text" class="form-control" id="txtNamaProduk" placeholder="Nama Produk">
                       </div>
                       <div class="form-group">
                         <label for="txtSatuan">Satuan</label>
@@ -34,16 +34,20 @@ $kodeProduk = substr(str_shuffle($bahanKodeProduk), 0, 10);
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Kategori</label>
-                      <select class="form-control">
+                        <label for="txtKategori">Kategori</label>
+                      <select class="form-control"  name='txtKategori' id='txtKategori'>
                         @foreach($kategori as $kat)
                           <option value="{{$kat -> kode}}">{{$kat -> nama}}</option>
                         @endforeach
                       </select>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Email</label>
-                        <input type="email" class="form-control" id="txtEmail" placeholder="Email">
+                        <label for="exampleInputPassword1">Deksripsi Produk</label>
+                        <input type="email" class="form-control" id="txtDeksripsi" placeholder="Deksripsi">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Harga Jual</label>
+                        <input type="email" class="form-control" id="txtHargaJual" placeholder="Harga Jual">
                       </div>
                       <button class="btn btn-primary mr-2" id='btnSimpan'>Simpan</button>
                       <button class="btn btn-light" id='btnKembali'>Kembali</button>
@@ -59,6 +63,7 @@ $kodeProduk = substr(str_shuffle($bahanKodeProduk), 0, 10);
                               <ul>
 
                               </ul>
+                              <div id='divTest'></div>
                             </div>
                           </div>
 
@@ -70,44 +75,34 @@ $kodeProduk = substr(str_shuffle($bahanKodeProduk), 0, 10);
 <script>
 $(document).ready(function(){
 
-  $('#txtNamaLengkap').focus();
+  $('#txtNamaProduk').focus();
 
   $('#btnSimpan').click(function(){
-    let kodeSup = $('#txtKodeSup').val();
-    let nama = $('#txtNamaLengkap').val();
-    let alamat = $('#txtAlamat').val();
-    let hp = $('#txtHp').val();
-    let email = $('#txtEmail').val();
+    let kodeProduk = "{{$kodeProduk}}";
+    let namaProduk = $('#txtNamaProduk').val();
+    let satuan = $('#txtSatuan').val();
+    let kategori = $('#txtKategori').val();
+    let deksripsi = $('#txtDeksripsi').val();
+    let hargaJual = $('#txtHargaJual').val();
 
-    if(kodeSup == "" || nama == "" || alamat == "" || hp == "" || email == ""){
+    if(namaProduk == "" || satuan == "" || kategori == "" || deksripsi == "" || hargaJual == ""){
       Swal.fire(
             'Field kosong!!',
             'Harap perhatikan semua field',
             'warning'
           );
-      $('#txtNamaLengkap').focus();
+      $('#txtNamaProduk').focus();
     }else{
-        $.post('/supplier/prosesTambah',{'kodeSup':kodeSup,'namaSup':nama,'alamatSup':alamat,'hpSup':hp,'emailSup':email},function(data){
-          if(data.status == 'berhasil'){
-            Swal.fire(
-                  'Tambah supplier',
-                  'Supplier berhasil di tambahkan',
-                  'success'
-                );
-            $('#divUtama').html("Memuat ...");
-            $('#divUtama').load('supplier/tampil');
-          }else{
-
-          }
-
-        });
+      $.post('/produk/tambahProses',{'kodeProduk':kodeProduk,'namaProduk':namaProduk,'satuan':satuan,'kategori':kategori,'deksripsi':deksripsi,'hargaJual':hargaJual},function(data){
+        $('#divUtama').html("Memuat ...");
+        $('#divUtama').load('produk/tampil');
+      });
     }
-
   });
 
   $('#btnKembali').click(function(){
       $('#divUtama').html("Memuat ...");
-      $('#divUtama').load('supplier/tampil');
+      $('#divUtama').load('produk/tampil');
   });
 
 });
