@@ -17,4 +17,9 @@ class SupplierCon extends Controller
     {
       return view('page.dashboard.formTambahSupplier');
     }
+
+    public function supplierProsesTambah(Request $request)
+    {
+
+    }
 }

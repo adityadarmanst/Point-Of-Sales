@@ -13,7 +13,7 @@ $kodeSup = substr(str_shuffle($bahanKodeSup), 0, 6);
                     <p class="card-description">
                       Basic form layout
                     </p>
-                    <form class="forms-sample">
+                    <div class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputUsername1">Kode</label>
                         <input type="text" class="form-control" id="txtKodeSup" disabled placeholder="Kode Supplier" value="{{$kodeSup}}">
@@ -34,9 +34,9 @@ $kodeSup = substr(str_shuffle($bahanKodeSup), 0, 6);
                         <label for="exampleInputPassword1">Email</label>
                         <input type="email" class="form-control" id="txtEmail" placeholder="Email">
                       </div>
-                      <button type="submit" class="btn btn-primary mr-2">Tambah</button>
-                      <button class="btn btn-light">Kembali</button>
-                    </form>
+                      <button class="btn btn-primary mr-2" id='btnSimpan'>Simpan</button>
+                      <button class="btn btn-light" id='btnKembali'>Kembali</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -47,6 +47,8 @@ $kodeSup = substr(str_shuffle($bahanKodeSup), 0, 6);
                               <h3>Fungsi supplier</h3>
                               <ul>
                                 <li>Supplier berfungsi sebagai penyalur produk yang akan kita jual</li>
+                                <li>Data supplier harus sesuai dengan kondisi di lapangan</li>
+                                <li>Nama supplier bisa nama usaha/nama pemilik usaha</li>
                               </ul>
                             </div>
                           </div>
@@ -60,6 +62,33 @@ $kodeSup = substr(str_shuffle($bahanKodeSup), 0, 6);
 $(document).ready(function(){
 
   $('#txtNamaLengkap').focus();
+
+  $('#btnSimpan').click(function(){
+    let kodeSup = $('#txtKodeSup').val();
+    let nama = $('#txtNamaLengkap').val();
+    let alamat = $('#txtAlamat').val();
+    let hp = $('#txtHp').val();
+    let email = $('#txtEmail').val();
+
+    if(kodeSup == "" || nama == "" || alamat == "" || hp == "" || email == ""){
+      Swal.fire(
+            'Field kosong!!',
+            'Harap perhatikan semua field',
+            'warning'
+          );
+      $('#txtNamaLengkap').focus();
+    }else{
+        $.post('/supplier/prosesTambah',{'kodeSup':kodeSup},function(data){
+
+        });
+    }
+
+  });
+
+  $('#btnKembali').click(function(){
+      $('#divUtama').html("Memuat ...");
+      $('#divUtama').load('supplier/tampil');
+  });
 
 });
 </script>
