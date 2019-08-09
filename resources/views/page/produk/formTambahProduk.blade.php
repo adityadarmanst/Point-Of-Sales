@@ -94,7 +94,8 @@ $(document).ready(function(){
       $('#txtNamaProduk').focus();
     }else{
       $.post('/produk/tambahProses',{'kodeProduk':kodeProduk,'namaProduk':namaProduk,'satuan':satuan,'kategori':kategori,'deksripsi':deksripsi,'hargaJual':hargaJual},function(data){
-        $('#divUtama').html("Memuat ...");
+        console.log(data);
+       $('#divUtama').html("Memuat ...");
         $('#divUtama').load('produk/tampil');
       });
     }
