@@ -52,4 +52,12 @@ class SupplierCon extends Controller
       return \Response::json($data);
     }
 
+    public function supplierHapusProses(Request $request)
+    {
+      $kodeSup = $request -> kodeSup;
+      $data['status'] = 'berhasil';
+        DB::table('tbl_supplier') -> where('kode',$kodeSup) -> delete();
+      return \Response::json($data);
+    }
+
 }

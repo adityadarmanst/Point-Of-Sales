@@ -56,7 +56,34 @@
 
     $('.btnHapus').click(function(){
       let kodeSup = $(this).attr('id');
-      
+      Swal.fire({
+        title: 'Hapus Suppplier?',
+        text: "Apakah kamu yakin menghapus Supplier ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+      }).then((result) => {
+        if (result.value) {
+          $.post('/supplier/hapusProses',{'kodeSup':kodeSup},function(data){
+            let status = data.status;
+            if(status == "berhasil"){
+              Swal.fire(
+                'Terhapus!',
+                'Kategori berhasil di hapus ',
+                'success'
+              );
+              $('#divUtama').html("Memuat ..");
+              $('#divUtama').load('supplier/tampil');
+            }else{
+
+            }
+          });
+
+        }
+    });
+
     })
 
   });
