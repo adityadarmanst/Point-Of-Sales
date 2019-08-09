@@ -29,7 +29,8 @@
       <td>{{$sup -> alamat}}<td>
       <td>{{$sup -> no_hp}}</td>
       <td></td>
-      <td><button class='btn btn-primary btnEdit' id='{{$sup -> kode}}'><i class="mdi mdi-grease-pencil"></i> Edit</button></td>
+      <td><button class='btn btn-primary btnEdit' id='{{$sup -> kode}}'><i class="mdi mdi-grease-pencil"></i> Edit</button>
+      <button class='btn btn-warning btnHapus' id='{{$sup -> kode}}'><i class="mdi mdi mdi-delete"></i> Hapus</button></td>
     </tr>
       @endforeach
   </tbody>
@@ -52,6 +53,11 @@
       $('#divUtama').html("Memuat ... ");
       $('#divUtama').load('/supplier/formTambahTampil');
     });
+
+    $('.btnHapus').click(function(){
+      let kodeSup = $(this).attr('id');
+      
+    })
 
   });
 </script>
