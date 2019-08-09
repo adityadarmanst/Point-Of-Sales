@@ -36,6 +36,18 @@ class mainSeeder extends Seeder
             'last_login' => date("Y-m-d H:i:s")
         ]);
 
+        DB::table('tbl_produk') -> insert([
+            'kode' => '09011',
+            'nama' => 'Mogi Mogi rasa barbeque',
+            'kategori' => '0001',
+            'satuan' => 'bungkus',
+            'deksripsi' => 'produk contoh',
+            'harga_beli' => 2000,
+            'harga_jual' => 2500,
+            'stok' => 0,
+            'created_at' => date("Y-m-d H:i:s")
+        ]);
+
         DB::table('tbl_user') -> insert([
             'username' => 'kasir',
             'nama' => 'Kasir',
