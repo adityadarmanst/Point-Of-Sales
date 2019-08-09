@@ -35,6 +35,9 @@ Route::post('/kategori/tambahProses','KategoriCon@kategoriTambahProses');
 Route::post('/kategori/hapusProses','KategoriCon@kategoriHapusProses');
 Route::post('/kategori/editData','KategoriCon@kategoriEditData');
 Route::post('/kategori/editProses','KategoriCon@kategoriEditProses');
+//Produk
+Route::get('/produk/tampil','ProdukCon@produkTampil');
+
 //untuk proses logout
 Route::get('/logOut', 'DashboardCon@logOut');
 

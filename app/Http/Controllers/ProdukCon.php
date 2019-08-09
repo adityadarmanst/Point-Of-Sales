@@ -7,4 +7,8 @@ use Illuminate\Http\Request;
 class ProdukCon extends Controller
 {
     //
+    public function produkTampil()
+    {
+
+    }
 }
