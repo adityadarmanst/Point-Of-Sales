@@ -25,8 +25,9 @@ class SupplierCon extends Controller
         $alamatSup = $request -> alamatSup;
         $emailSup = $request -> emailSup;
         $hpSup = $request -> hpSup;
+        $createdAt = date("Y-m-d H:i:s");
         $data['status'] = 'berhasil';
-        DB::table('tbl_supplier')->insert(['kode' => $kodeSup, 'nama_lengkap' => $namaSup, 'alamat' => $alamatSup, 'no_hp' => $hpSup, 'email' => $emailSup, 'active' => 'y']);
+        DB::table('tbl_supplier')->insert(['kode' => $kodeSup, 'nama_lengkap' => $namaSup, 'alamat' => $alamatSup, 'no_hp' => $hpSup, 'email' => $emailSup, 'active' => 'y', 'created_at' => $createdAt ]);
         return \Response::json($data);
     }
 }
