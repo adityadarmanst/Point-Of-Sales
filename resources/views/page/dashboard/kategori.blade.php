@@ -4,12 +4,12 @@ $bahanKode = "0981234561223";
 $acak = str_shuffle($bahanKode);
 $kodeBarang = substr($acak, 0, 4);
 ?>
-<div class='mb-3'>
+<div class='container'>
 
+<div class='mb-3'>
 <h4>List kategori</h4>
 <button class='btn btn-primary mr-2' id='btnTampilForm'><i class="mdi mdi-database-plus"></i> Tambah</button>
 <div class='col-4 mt-4 mb-4' id='divFormTambah'>
-
 <form class="forms-sample">
                     <div class="form-group">
                       <label for="txtKode">Kode</label>
@@ -27,7 +27,6 @@ $kodeBarang = substr($acak, 0, 4);
 </div>
 
 <div class='col-4 mt-4 mb-4' id='divFormUpdate'>
-
 <form class="forms-sample">
                     <div class="form-group">
                       <label for="txtKode">Kode</label>
@@ -42,7 +41,7 @@ $kodeBarang = substr($acak, 0, 4);
                     <a href='#!' id='btnTutupFormUp'>Tutup</a>
                   </form>
 </div>
-</div>
+
 
 <table id='table_id'>
 
@@ -67,8 +66,8 @@ $kodeBarang = substr($acak, 0, 4);
     @endforeach
 </tbody>
 </table>
-
-
+</div>
+</div>
 <script>
 $(document).ready(function(){
     $('#table_id').DataTable();

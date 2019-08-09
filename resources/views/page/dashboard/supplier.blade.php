@@ -1,3 +1,4 @@
+<div class='container'>
 <div class='mb-3'>
 
 <h4>List Supplier</h4>
@@ -33,6 +34,7 @@
   </table>
 </div>
 
+</div>
 </div>
 <script>
   $(document).ready(function(){

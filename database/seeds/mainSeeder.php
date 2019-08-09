@@ -13,15 +13,15 @@ class mainSeeder extends Seeder
     {
 
         DB::table('tbl_supplier') -> insert([
-        	'kode' => '0922123332',
+        	'kode' => '451233',
         	'nama_lengkap' => 'Aditia Darma',
         	'alamat' => 'Medan',
             'no_hp' => '083189223122',
             'email' => 'alditha.forum@gmail.com',
             'active' => 'y',
-            'created_at' => date("Y-m-d H:i:s") 
+            'created_at' => date("Y-m-d H:i:s")
         ]);
-        
+
         DB::table('tbl_kategori') -> insert([
             'kode' => '0001',
             'nama' => 'Snack',
@@ -33,7 +33,7 @@ class mainSeeder extends Seeder
             'nama' => 'Administrator',
             'password' =>  password_hash("admin", PASSWORD_DEFAULT),
             'tipe' => 'admin',
-            'last_login' => date("Y-m-d H:i:s") 
+            'last_login' => date("Y-m-d H:i:s")
         ]);
 
         DB::table('tbl_user') -> insert([
@@ -41,7 +41,7 @@ class mainSeeder extends Seeder
             'nama' => 'Kasir',
             'password' =>  password_hash("kasir", PASSWORD_DEFAULT),
             'tipe' => 'kasir',
-            'last_login' => date("Y-m-d H:i:s") 
+            'last_login' => date("Y-m-d H:i:s")
         ]);
 
     }
