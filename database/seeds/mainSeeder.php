@@ -27,7 +27,7 @@ class mainSeeder extends Seeder
             'nama' => 'Snack',
             'active' => 'y'
         ]);
-        
+
         DB::table('tbl_satuan') -> insert(['kode' => '1','nama' => 'Botol','active' => 'y']);
         DB::table('tbl_satuan') -> insert(['kode' => '2','nama' => 'Sachet','active' => 'y']);
         DB::table('tbl_satuan') -> insert(['kode' => '3','nama' => 'Dus','active' => 'y']);
@@ -64,7 +64,7 @@ class mainSeeder extends Seeder
             'kode' => '09011',
             'nama' => 'Mogi Mogi Ayam Bakar',
             'kategori' => '2211',
-            'satuan' => 'bungkus',
+            'satuan' => '3',
             'deksripsi' => 'produk contoh',
             'harga_jual' => 2500,
             'stok' => 0,

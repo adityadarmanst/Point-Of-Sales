@@ -1,3 +1,5 @@
+
+
 <div class="container">
 
 <div class='row'>
@@ -21,13 +23,9 @@
                       <div class="form-group">
                         <label for="txtSatuan">Satuan</label>
                         <select class="form-control" name='txtSatuan' id='txtSatuan'>
-                            <option value='botol'>Botol</option>
-                            <option value='dus'>Dus</option>
-                            <option value='sachet'>Sachet</option>
-                            <option value='liter'>Liter</option>
-                            <option value='bal'>Bal</option>
-                            <option value='bungkus'>Bungkus</option>
-                            
+                          @foreach($satuan as $sat)
+                          <option value='{{$sat -> kode}}'>{{$sat -> nama}}</option>
+                          @endforeach
                         </select>
                       </div>
                       <div class="form-group">

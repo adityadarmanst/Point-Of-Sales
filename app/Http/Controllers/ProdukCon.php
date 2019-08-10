@@ -21,7 +21,8 @@ class ProdukCon extends Controller
     public function produkFormTambahTampil()
     {
       $kategori = DB::table('tbl_kategori') -> get();
-      return view('page.produk.formTambahProduk',['kategori' => $kategori]);
+      $satuan = DB::table('tbl_satuan') -> get();
+      return view('page.produk.formTambahProduk',['kategori' => $kategori, 'satuan' => $satuan]);
     }
 
     public function produkTambahProses(Request $request)
@@ -45,9 +46,9 @@ class ProdukCon extends Controller
     {
       $kodeProduk = $request -> kodeProduk;
       $kategori = DB::table('tbl_kategori') -> get();
+      $satuan = DB::table('tbl_satuan') -> get();
       $dataProduk = DB::table('tbl_produk') -> where('kode', $kodeProduk) -> first();
-      return view('page.produk.formEditProduk',['dataProduk' => $dataProduk, 'kategori' => $kategori]);
-
+      return view('page.produk.formEditProduk',['dataProduk' => $dataProduk, 'kategori' => $kategori, 'satuan' => $satuan]);
     }
 
 }
