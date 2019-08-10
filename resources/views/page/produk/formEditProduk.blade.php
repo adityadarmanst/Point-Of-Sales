@@ -24,7 +24,11 @@
                         <label for="txtSatuan">Satuan</label>
                         <select class="form-control" name='txtSatuan' id='txtSatuan'>
                           @foreach($satuan as $sat)
-                          <option value='{{$sat -> kode}}'>{{$sat -> nama}}</option>
+                            @if($sat -> kode === $dataProduk -> satuan)
+                             <option value='{{$sat -> kode}}' selected>{{$sat -> nama}}</option>
+                            @else
+                              <option value='{{$sat -> kode}}'>{{$sat -> nama}}</option>
+                          @endif
                           @endforeach
                         </select>
                       </div>

@@ -1,13 +1,14 @@
 <div class='container'>
 <div class='mb-3'>
-
+<div class="card">
+  <div class="card-body">
 <h4>List Produk</h4>
 <button class='btn btn-primary mr-2' id='btnTampilFormTambah'><i class="mdi mdi-database-plus"></i> Tambah</button>
 
 
 
 <div class="mt-3">
-  <table id='table_id'>
+  <table id='table_id' class="table-striped">
 
   <thead>
       <tr>
@@ -25,12 +26,13 @@
       @foreach($produk as $pro)
       <?php
         $kat = DB::table('tbl_kategori') -> where('kode', $pro -> kategori) -> first();
+        $sat = DB::table('tbl_satuan') -> where('kode', $pro -> satuan) -> first();
        ?>
 
       <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$pro -> kode}}</td>
-      <td>{{$pro -> nama}} <br/>  <small> Tipe : {{$kat -> nama}}</small><br/><small>Satuan : {{$pro -> satuan}}</small></td>
+      <td>{{$pro -> nama}} <br/>  <small> Tipe : {{$kat -> nama}}</small><br/><small>Satuan : {{$sat -> nama}}</small></td>
       <td>{{$pro -> deksripsi}}</td>
       <td>{{$pro -> harga_jual}}</td>
       <td>{{$pro -> stok}}</td>
@@ -41,7 +43,8 @@
   </tbody>
   </table>
 </div>
-
+</div>
+</div>
 </div>
 </div>
 <script>

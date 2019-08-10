@@ -7,6 +7,7 @@ $kodeBarang = substr($acak, 0, 4);
 <div class='container'>
 
 <div class='mb-3'>
+  
 <h4>List kategori</h4>
 <button class='btn btn-primary mr-2' id='btnTampilForm'><i class="mdi mdi-database-plus"></i> Tambah</button>
 <div class='col-4 mt-4 mb-4' id='divFormTambah'>

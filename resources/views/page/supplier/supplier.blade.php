@@ -1,6 +1,7 @@
 <div class='container'>
 <div class='mb-3'>
-
+  <div class="card">
+    <div class="card-body">
 <h4>List Supplier</h4>
 <button class='btn btn-primary mr-2' id='btnTampilFormTambah'><i class="mdi mdi-database-plus"></i> Tambah</button>
 
@@ -36,7 +37,8 @@
   </tbody>
   </table>
 </div>
-
+</div>
+</div>
 </div>
 </div>
 <script>
