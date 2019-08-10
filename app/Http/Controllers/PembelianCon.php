@@ -8,6 +8,6 @@ class PembelianCon extends Controller
 {
     public function pembelianTampil()
     {
-      return "Data";
+      //return view('page.pembelian.');
     }
 }
