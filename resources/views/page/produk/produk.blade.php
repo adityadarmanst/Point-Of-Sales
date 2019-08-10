@@ -51,7 +51,7 @@
     $('.btnEdit').click(function(){
       let kodeSup = $(this).attr('id');
       $('#divUtama').html("Memuat ... ");
-      $('#divUtama').load('/supplier/formEditTampil',{'kodeSup':kodeSup});
+      $('#divUtama').load('/produk/formEditTampil',{'kodeSup':kodeSup});
     });
 
     $('#btnTampilFormTambah').click(function(){

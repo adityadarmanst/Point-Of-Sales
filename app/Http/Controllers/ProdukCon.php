@@ -40,4 +40,10 @@ class ProdukCon extends Controller
       DB::table('tbl_produk')->insert(['kode' => $kodeProduk, 'nama' => $namaProduk, 'kategori' => $kategori, 'satuan' => $satuan, 'deksripsi' => $deksripsi, 'harga_jual' => $hargaJual, 'stok' => '0', 'created_at' => $createdAt]);
       return \Response::json($request);
     }
+
+    public function produkFormEditTampil()
+    {
+      return 'form edit';
+    }
+
 }
