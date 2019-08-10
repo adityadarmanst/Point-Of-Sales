@@ -27,6 +27,15 @@ class mainSeeder extends Seeder
             'nama' => 'Snack',
             'active' => 'y'
         ]);
+        
+        DB::table('tbl_satuan') -> insert(['kode' => '1','nama' => 'Botol','active' => 'y']);
+        DB::table('tbl_satuan') -> insert(['kode' => '2','nama' => 'Sachet','active' => 'y']);
+        DB::table('tbl_satuan') -> insert(['kode' => '3','nama' => 'Dus','active' => 'y']);
+        DB::table('tbl_satuan') -> insert(['kode' => '4','nama' => 'Liter','active' => 'y']);
+        DB::table('tbl_satuan') -> insert(['kode' => '5','nama' => 'ml','active' => 'y']);
+        DB::table('tbl_satuan') -> insert(['kode' => '6','nama' => 'Kilogram','active' => 'y']);
+
+
         DB::table('tbl_kategori') -> insert([
             'kode' => '3221',
             'nama' => 'Air Mineral',
