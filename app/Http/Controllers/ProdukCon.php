@@ -41,9 +41,13 @@ class ProdukCon extends Controller
       return \Response::json($request);
     }
 
-    public function produkFormEditTampil()
+    public function produkFormEditTampil(Request $request)
     {
-      return 'form edit';
+      $kodeProduk = $request -> kodeProduk;
+      $kategori = DB::table('tbl_kategori') -> get();
+      $dataProduk = DB::table('tbl_produk') -> where('kode', $kodeProduk) -> first();
+      return view('page.produk.formEditProduk',['dataProduk' => $dataProduk, 'kategori' => $kategori]);
+
     }
 
 }

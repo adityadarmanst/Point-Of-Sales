@@ -49,9 +49,9 @@
     $('#table_id').DataTable();
 
     $('.btnEdit').click(function(){
-      let kodeSup = $(this).attr('id');
+      let kodeProduk = $(this).attr('id');
       $('#divUtama').html("Memuat ... ");
-      $('#divUtama').load('/produk/formEditTampil',{'kodeSup':kodeSup});
+      $('#divUtama').load('/produk/formEditTampil',{'kodeProduk':kodeProduk});
     });
 
     $('#btnTampilFormTambah').click(function(){
