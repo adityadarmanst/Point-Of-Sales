@@ -11,22 +11,27 @@ $(document).ready(function(){
 
     $('#btnKategori').click(function(){
         $('#divUtama').html("Memuat ..");
-        $('#divUtama').load('kategori/tampil');
+        $('#divUtama').load('/kategori/tampil');
     });
 
     $('#btnSupplier').click(function(){
         $('#divUtama').html("Memuat ..");
-        $('#divUtama').load('supplier/tampil');
+        $('#divUtama').load('/supplier/tampil');
     });
 
     $('#btnProduk').click(function(){
         $('#divUtama').html("Memuat ..");
-        $('#divUtama').load('produk/tampil');
+        $('#divUtama').load('/produk/tampil');
     });
 
     $('#btnDashboard').click(function(){
         $('#divUtama').html("Memuat ..");
-        $('#divUtama').load('beranda');
+        $('#divUtama').load('/beranda');
+    });
+
+    $('#btnPembelian').click(function(){
+      $('#divUtama').html("Memuat ..");
+      $('#divUtama').load('/pembelian/tampil');
     });
 
 });

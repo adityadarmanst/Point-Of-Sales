@@ -49,7 +49,7 @@
                   </div>
               </li>
               <li class="nav-item">
-                  <a href="#!" class="nav-link">
+                  <a href="#!" class="nav-link" id='btnPembelian'>
                     <i class="mdi mdi mdi-cart-outline menu-icon"></i>
                     <span class="menu-title">Pembelian</span>
                     <i class="menu-arrow"></i>
