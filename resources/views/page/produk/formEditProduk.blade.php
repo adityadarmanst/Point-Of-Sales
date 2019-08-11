@@ -76,10 +76,18 @@
 
     <script>
       $(document).ready(function(){
+
         $('#btnSimpan').click(function(){
           let kodePro = $('#txtKodePro').val();
           let namaPro = $('#txtNamaPro').val();
+          let deksripsi = $('#txtDeksripsi').val();
+          let satuan = $('#txtSatuan').val();
+          let kategori = $('#txtKategori').val();
+          let hargaJual = $('#txtHargaJual').val();
+          $.post('/produk/prosesTambah',function(){
 
+          });
         });
+        
       });
     </script>
