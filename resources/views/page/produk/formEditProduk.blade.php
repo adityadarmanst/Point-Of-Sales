@@ -14,11 +14,11 @@
                     <div class="forms-sample">
                       <div class="form-group">
                         <label for="exampleInputUsername1">Kode</label>
-                        <input type="text" class="form-control" id="txtKodeSup" disabled placeholder="Kode Supplier" value="{{$dataProduk -> kode}}">
+                        <input type="text" class="form-control" id="txtKodePro" disabled placeholder="Kode Supplier" value="{{$dataProduk -> kode}}">
                       </div>
                       <div class="form-group">
                         <label for="txtNamaProduk">Nama Produk</label>
-                        <input type="text" class="form-control" id="txtNamaProduk" placeholder="Nama Produk" value="{{$dataProduk -> nama}}">
+                        <input type="text" class="form-control" id="txtNamaPro" placeholder="Nama Produk" value="{{$dataProduk -> nama}}">
                       </div>
                       <div class="form-group">
                         <label for="txtSatuan">Satuan</label>
@@ -62,7 +62,7 @@
               <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                               <div class="card-body">
-                              <h3>Produk</h3>
+                              <h3>Edit Produk</h3>
                               <ul>
 
                               </ul>
@@ -73,3 +73,13 @@
                         </di>
 
 </div>
+
+    <script>
+      $(document).ready(function(){
+        $('#btnSimpan').click(function(){
+          let kodePro = $('#txtKodePro').val();
+          let namaPro = $('#txtNamaPro').val();
+
+        });
+      });
+    </script>
