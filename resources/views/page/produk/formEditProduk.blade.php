@@ -84,10 +84,10 @@
           let satuan = $('#txtSatuan').val();
           let kategori = $('#txtKategori').val();
           let hargaJual = $('#txtHargaJual').val();
-          $.post('/produk/prosesTambah',function(){
-
+          $.post('/produk/prosesEdit',{'kodePro':kodePro,'namaPro':namaPro,'deksripsi':deksripsi,'satuan':satuan,'kategori':kategori,'hargaJual':hargaJual},function(data){
+            console.log(data);
           });
         });
-        
+
       });
     </script>

@@ -41,6 +41,7 @@ Route::get('/produk/formTambahTampil','ProdukCon@produkFormTambahTampil');
 Route::post('/produk/tambahProses','ProdukCon@produkTambahProses');
 Route::get('/produk/ambilInfoKategori','ProdukCon@produkAmbilInfoKategori');
 Route::post('/produk/formEditTampil','ProdukCon@produkFormEditTampil');
+Route::post('/produk/prosesEdit','ProdukCon@produkEditProses');
 //pembelian
 Route::get('/pembelian/tampil','PembelianCon@pembelianTampil');
 //untuk proses logout
