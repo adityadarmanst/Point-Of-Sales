@@ -86,6 +86,7 @@
           let hargaJual = $('#txtHargaJual').val();
           $.post('/produk/prosesEdit',{'kodePro':kodePro,'namaPro':namaPro,'deksripsi':deksripsi,'satuan':satuan,'kategori':kategori,'hargaJual':hargaJual},function(data){
             console.log(data);
+            $('#divUtama').html("Memuat ");
           });
         });
 
