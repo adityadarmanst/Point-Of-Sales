@@ -60,6 +60,7 @@ class ProdukCon extends Controller
       $deksripsi = $request -> deksripsi;
       $hargaJual = $request -> hargaJual;
       $updatedAt = date("Y-m-d H:i:s");
+      DB::table('tbl_produk') -> where('kode',$kodeProduk) -> update(['nama' => $namaProduk, 'kategori' => $kategori, 'satuan' => $satuan, 'deksripsi' => $deksripsi, 'harga_jual' => $hargaJual, 'stok' => '0', 'updated_at' => $updatedAt]);
       return \Response::json($request);
     }
 
