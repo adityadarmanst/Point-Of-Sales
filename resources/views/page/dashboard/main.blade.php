@@ -15,8 +15,11 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="ladun/login/css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script src="ladun/main/sweetalert2@8.js"></script>
+
     <!-- endinject -->
     <link rel="shortcut icon" href="ladun/login/images/favicon.png" />
   </head>
@@ -59,7 +62,7 @@
                       <ul>
                         <li class="nav-item"><a class="nav-link" href="#!" id='btnPembelian'>Pembelian</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!" id='btnPenjualan'>Penjualan</a></li>
-                        
+
                       </ul>
                   </div>
               </li>
@@ -168,7 +171,7 @@
     <!-- Custom js for this page-->
     <script src="ladun/login/js/dashboard.js"></script>
     <script src="ladun/login/js/main.js"></script>
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
     <!-- End custom js for this page-->
   </body>
 </html>

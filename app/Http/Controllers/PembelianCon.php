@@ -8,7 +8,8 @@ class PembelianCon extends Controller
 {
     public function pembelianTampilForm()
     {
-      $users = DB::table('tbl_transaksi')->count();
-      return $users;
+      $totalTransaksi = DB::table('tbl_transaksi') -> where ('jenis_transaksi','pembelian') -> count();
+      $supplier = DB::table('tbl_supplier') -> get();
+      return view('page.pembelian.formPembelian',['supplier' => $supplier]);
     }
 }
