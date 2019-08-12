@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class PembelianCon extends Controller
 {
-    public function pembelianTampil()
+    public function pembelianTampilForm()
     {
-      //return view('page.pembelian.');
+      $users = DB::table('tbl_transaksi')->count();
+      return $users;
     }
 }

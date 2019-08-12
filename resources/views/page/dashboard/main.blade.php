@@ -57,9 +57,9 @@
                   </a>
                   <div class="submenu">
                       <ul>
-                        <li class="nav-item"><a class="nav-link" href="#!" id='btnPembelian'>Produk</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!" id='btnPenjualan'>Supplier</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Pelunasan</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!" id='btnPembelian'>Pembelian</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!" id='btnPenjualan'>Penjualan</a></li>
+                        
                       </ul>
                   </div>
               </li>

@@ -29,9 +29,9 @@ $(document).ready(function(){
         $('#divUtama').load('/beranda');
     });
 
-    $('#btnTransaksi').click(function(){
+    $('#btnPembelian').click(function(){
       $('#divUtama').html("Memuat ..");
-      $('#divUtama').load('/transaksi/tampilForm');
+      $('#divUtama').load('/transaksi/pembelian');
     });
 
 });
