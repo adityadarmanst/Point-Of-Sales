@@ -6,10 +6,17 @@ use Illuminate\Http\Request;
 
 class PembelianCon extends Controller
 {
+
+
+
     public function pembelianTampilForm()
     {
-      $totalTransaksi = DB::table('tbl_transaksi') -> where ('jenis_transaksi','pembelian') -> count();
+
+      $bahanTransaksi = "1234567890";
+      $noTransaksi = substr(str_shuffle($bahanTransaksi), 0, 4).substr(str_shuffle($bahanTransaksi), 0, 4).substr(str_shuffle($bahanTransaksi), 0, 4).substr(str_shuffle($bahanTransaksi), 0, 4);
+      $noTransaksi2Cap = substr(str_shuffle($bahanTransaksi), 0, 4)."-".substr(str_shuffle($bahanTransaksi), 0, 4)."-".substr(str_shuffle($bahanTransaksi), 0, 4)."-".substr(str_shuffle($bahanTransaksi), 0, 4);
+      $produk = DB::table('tbl_produk') -> get();
       $supplier = DB::table('tbl_supplier') -> get();
-      return view('page.pembelian.formPembelian',['supplier' => $supplier]);
+      return view('page.pembelian.formPembelian',['produk' => $produk,'supplier' => $supplier, 'noTransaksi' => $noTransaksi, 'noTransaksi2Cap' => $noTransaksi2Cap]);
     }
 }
