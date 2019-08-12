@@ -51,4 +51,10 @@ class ProdukCon extends Controller
       return view('page.produk.formEditProduk',['dataProduk' => $dataProduk, 'kategori' => $kategori, 'satuan' => $satuan]);
     }
 
+    public function produkHapusProses(Request $request)
+    {
+      $kodeProduk = $request -> kodeProduk;
+      DB::table('tbl_produk') -> where('kode',$kodeProduk) -> delete();
+    }
+
 }

@@ -56,7 +56,7 @@ class SupplierCon extends Controller
     {
       $kodeSup = $request -> kodeSup;
       $data['status'] = 'berhasil';
-        DB::table('tbl_supplier') -> where('kode',$kodeSup) -> delete();
+      DB::table('tbl_supplier') -> where('kode',$kodeSup) -> delete();
       return \Response::json($data);
     }
 
