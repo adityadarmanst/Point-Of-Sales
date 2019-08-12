@@ -33,8 +33,8 @@
                       <tr>
                           <td>{{$loop -> iteration}}</td>
                           <td>{{$pro -> nama}}</td>
-                          <td>{{$pro -> harga_jual}}</td>
-                          <td><button class="btn btn-primary">Tambah</button></td>
+                          <td>Rp. {{number_format($pro -> harga_jual)}}</td>
+                          <td><button class="btn btn-primary btnTambah" id="{{$pro -> kode}}">Tambah</button></td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -76,5 +76,20 @@ $(document).ready(function() {
     $('#table_id').DataTable();
     $('#table_id2').DataTable();
     $('.js-example-basic-single').select2({placeholder: 'Pilih supplier'});
+
+    $('.btnTambah').click(function(){
+      let kodeProduk = $(this).attr('id');
+      let noFaktur = "{{$noTransaksi}}";
+      let jumlahBarang = prompt("Masukkan jumlah barang ");
+
+      if(jumlahBarang == 0 || jumlahBarang == ""){
+        window.alert("Masukkan jumlah barang");
+      }else{
+        $.post('/transaksi/tambahProduk')
+      }
+
+    });
+
+
 });
 </script>
