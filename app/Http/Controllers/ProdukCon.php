@@ -51,6 +51,18 @@ class ProdukCon extends Controller
       return view('page.produk.formEditProduk',['dataProduk' => $dataProduk, 'kategori' => $kategori, 'satuan' => $satuan]);
     }
 
+    public function produkEditProses(Request $request)
+    {
+      $kodeProduk = $request -> kodeProduk;
+      $namaProduk = $request -> namaProduk;
+      $satuan = $request -> satuan;
+      $kategori = $request -> kategori;
+      $deksripsi = $request -> deksripsi;
+      $hargaJual = $request -> hargaJual;
+      $updatedAt = date("Y-m-d H:i:s");
+      return \Response::json($request);
+    }
+
     public function produkHapusProses(Request $request)
     {
       $data['status'] = 'berhasil';
