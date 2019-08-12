@@ -48,17 +48,28 @@
                       </ul>
                   </div>
               </li>
+
               <li class="nav-item">
-                  <a href="#!" class="nav-link" id='btnPembelian'>
-                    <i class="mdi mdi mdi-cart-outline menu-icon"></i>
-                    <span class="menu-title">Pembelian</span>
+                  <a href="#" class="nav-link">
+                    <i class="mdi mdi-cart-plus menu-icon"></i>
+                    <span class="menu-title">Transaksi</span>
                     <i class="menu-arrow"></i>
                   </a>
+                  <div class="submenu">
+                      <ul>
+                        <li class="nav-item"><a class="nav-link" href="#!" id='btnPembelian'>Produk</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!" id='btnPenjualan'>Supplier</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Pelunasan</a></li>
+                      </ul>
+                  </div>
               </li>
+
+
+
               <li class="nav-item">
-                  <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="#!" class="nav-link" id='btnLaporan'>
                     <i class="mdi mdi mdi-cart-plus menu-icon"></i>
-                    <span class="menu-title">Penjualan</span>
+                    <span class="menu-title">Laporan</span>
                     <i class="menu-arrow"></i>
                   </a>
               </li>
