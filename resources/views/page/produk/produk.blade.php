@@ -8,7 +8,7 @@
 
 
 <div class="mt-3">
-  <table id='table_id' class="table-striped">
+  <table id='table_id' class="table-striped table-hover table">
 
   <thead>
       <tr>
@@ -96,7 +96,7 @@
 
     $('.btnDetail').click(function(){
       let kodeProduk = $(this).attr('id');
-      
+
     });
 
   });
