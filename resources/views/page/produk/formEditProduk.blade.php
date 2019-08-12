@@ -85,7 +85,7 @@
           let kategori = $('#txtKategori').val();
           let hargaJual = $('#txtHargaJual').val();
           $.post('/produk/prosesEdit',{'kodeProduk':kodePro,'namaProduk':namaPro,'deksripsi':deksripsi,'satuan':satuan,'kategori':kategori,'hargaJual':hargaJual},function(data){
-            console.log(data);
+            Swal.fire('Terupdate!','Produk berhasil di update','success');
             $('#divUtama').html("Memuat ");
             $('#divUtama').load('produk/tampil');
           });

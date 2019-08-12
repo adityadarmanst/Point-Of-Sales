@@ -2,7 +2,7 @@
 <div class='mb-3'>
 <div class="card">
   <div class="card-body">
-<h4>List Produk</h4>
+<h3>List Produk</h3>
 <button class='btn btn-primary mr-2' id='btnTampilFormTambah'><i class="mdi mdi-database-plus"></i> Tambah</button>
 
 
@@ -32,7 +32,8 @@
       <tr>
       <td>{{$loop -> iteration}}</td>
       <td>{{$pro -> kode}}</td>
-      <td>{{$pro -> nama}} <br/>  <small> Tipe : {{$kat -> nama}}</small><br/><small>Satuan : {{$sat -> nama}}</small></td>
+      <td><a href='#!' class='btnDetail' id='{{$pro -> kode}}'>{{$pro -> nama}} </a>
+      <br/>  <small> Tipe : {{$kat -> nama}}</small><br/><small>Satuan : {{$sat -> nama}}</small></td>
       <td>{{$pro -> deksripsi}}</td>
       <td>Rp. {{number_format($pro -> harga_jual)}}</td>
       <td>{{$pro -> stok}}</td>
@@ -91,6 +92,11 @@
         }
     });
 
+    });
+
+    $('.btnDetail').click(function(){
+      let kodeProduk = $(this).attr('id');
+      
     });
 
   });
