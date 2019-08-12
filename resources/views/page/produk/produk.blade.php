@@ -34,7 +34,7 @@
       <td>{{$pro -> kode}}</td>
       <td>{{$pro -> nama}} <br/>  <small> Tipe : {{$kat -> nama}}</small><br/><small>Satuan : {{$sat -> nama}}</small></td>
       <td>{{$pro -> deksripsi}}</td>
-      <td>{{$pro -> harga_jual}}</td>
+      <td>Rp. {{number_format($pro -> harga_jual)}}</td>
       <td>{{$pro -> stok}}</td>
       <td><button class='btn btn-primary btnEdit' id='{{$pro -> kode}}'><i class="mdi mdi-grease-pencil"></i> Edit</button>
       <button class='btn btn-warning btnHapus' id='{{$pro -> kode}}'><i class="mdi mdi mdi-delete"></i> Hapus</button></td>
@@ -64,10 +64,33 @@
 
     $('.btnHapus').click(function(){
       let kodeProduk = $(this).attr('id');
-      $.post('/produk/hapusProses',{'kodeProduk':kodeProduk},function(data){
-          $('#divUtama').html("Memuat ... ");
-          $('#divUtama').load('/produk/tampil');
-      });
+
+      Swal.fire({
+        title: 'Hapus Produk?',
+        text: "Apakah kamu yakin menghapus produk ini ?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Hapus!'
+      }).then((result) => {
+        if (result.value) {
+          $.post('/produk/hapusProses',{'kodeProduk':kodeProduk},function(data){
+            let status = data.status;
+            if(status == "berhasil"){
+              Swal.fire('Terhapus!','Produk berhasil di hapus ','success');
+              $('#divUtama').html("Memuat ..");
+              $('#divUtama').load('produk/tampil');
+            }else{
+              Swal.fire('Gagal!','Produk gagal di hapus ','error');
+              $('#divUtama').html("Memuat ..");
+              $('#divUtama').load('produk/tampil');
+            }
+          });
+
+        }
+    });
+
     });
 
   });

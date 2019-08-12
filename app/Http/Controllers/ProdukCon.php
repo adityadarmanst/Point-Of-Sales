@@ -39,7 +39,7 @@ class ProdukCon extends Controller
       $createdAt = date("Y-m-d H:i:s");
       // DB::table('tbl_supplier')->insert(['kode' => $kodeSup, 'nama_lengkap' => $namaSup, 'alamat' => $alamatSup, 'no_hp' => $hpSup, 'email' => $emailSup, 'active' => 'y', 'created_at' => $createdAt ]);
       DB::table('tbl_produk')->insert(['kode' => $kodeProduk, 'nama' => $namaProduk, 'kategori' => $kategori, 'satuan' => $satuan, 'deksripsi' => $deksripsi, 'harga_jual' => $hargaJual, 'stok' => '0', 'created_at' => $createdAt]);
-      return \Response::json($request);
+      return \Response::json($data);
     }
 
     public function produkFormEditTampil(Request $request)
@@ -53,8 +53,10 @@ class ProdukCon extends Controller
 
     public function produkHapusProses(Request $request)
     {
+      $data['status'] = 'berhasil';
       $kodeProduk = $request -> kodeProduk;
       DB::table('tbl_produk') -> where('kode',$kodeProduk) -> delete();
+      return \Response::json($data);
     }
 
 }
