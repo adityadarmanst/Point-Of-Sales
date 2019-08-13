@@ -85,7 +85,9 @@ $(document).ready(function() {
       if(jumlahBarang == 0 || jumlahBarang == ""){
         window.alert("Masukkan jumlah barang");
       }else{
-        $.post('/transaksi/tambahProduk')
+        $.post('/transaksi/tambahProduk',{'kodeProduk':kodeProduk,'noFaktur':noFaktur,'jumlahBarang':jumlahBarang},function(data){          
+          console.log(data);
+        });
       }
 
     });
