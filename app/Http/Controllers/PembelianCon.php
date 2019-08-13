@@ -21,11 +21,11 @@ class PembelianCon extends Controller
     {
       // 'kodeProduk':kodeProduk,'noFaktur':noFaktur,'jumlahBarang':jumlahBarang
         //cek Faktur
-        DB::table('tbl_transaksi') -> where ('no_transaksi')
+        //DB::table('tbl_transaksi') -> where ('no_transaksi')
         $kodeProduk = $request -> kodeProduk;
         $noFaktur = $request -> noFaktur;
         $jumlahBarang = $request -> jumlahBarang;
-        DB::('tbl_')
+        //DB::('tbl_')
         return \Response::json($request);
     }
 }
