@@ -28,4 +28,10 @@ class PembelianCon extends Controller
         //DB::('tbl_')
         return \Response::json($request);
     }
+
+    public function testPostman(Request $request)
+    {
+      return \Response::json($request);
+    }
+
 }

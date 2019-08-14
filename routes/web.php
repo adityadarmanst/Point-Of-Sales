@@ -47,7 +47,7 @@ Route::post('/produk/hapusProses','ProdukCon@produkHapusProses');
 Route::post('/produk/detailProduk','ProdukCon@produkHapusProses');
 //pembelian
 Route::post('/transaksi/tambahProduk','PembelianCon@pembelianTambahProduk');
-
+Route::post('/transaksi/testPostman','PembelianCon@testPostman');
 //untuk proses logout
 Route::get('/logOut', 'DashboardCon@logOut');
 
