@@ -79,14 +79,15 @@ $(document).ready(function() {
 
     $('.btnTambah').click(function(){
       let kodeProduk = $(this).attr('id');
-      let noFaktur = "{{$noTransaksi}}";
-      let jumlahBarang = prompt("Masukkan jumlah barang ");
+      let noTransaksi = "{{$noTransaksi}}";
+      let jumlahProduk = prompt("Masukkan jumlah barang ");
 
-      if(jumlahBarang == 0 || jumlahBarang == ""){
+      if(jumlahProduk == 0 || jumlahProduk == ""){
         window.alert("Masukkan jumlah barang");
       }else{
-        $.post('/transaksi/tambahProduk',{'kodeProduk':kodeProduk,'noFaktur':noFaktur,'jumlahBarang':jumlahBarang},function(data){          
+        $.post('/transaksi/tambahProduk',{'kodeProduk':kodeProduk,'noTransaksi':noTransaksi,'jumlahProduk':jumlahProduk},function(data){
           console.log(data);
+
         });
       }
 

@@ -8,25 +8,31 @@ class PembelianCon extends Controller
 {
     public function pembelianTampilForm()
     {
+      $userLogin = session('userSession');
       $bahanTransaksi = "1234567890";
       $noTransaksi = substr(str_shuffle($bahanTransaksi), 0, 4).substr(str_shuffle($bahanTransaksi), 0, 4).substr(str_shuffle($bahanTransaksi), 0, 4).substr(str_shuffle($bahanTransaksi), 0, 4);
       $noTransaksi2Cap = substr(str_shuffle($bahanTransaksi), 0, 4)."-".substr(str_shuffle($bahanTransaksi), 0, 4)."-".substr(str_shuffle($bahanTransaksi), 0, 4)."-".substr(str_shuffle($bahanTransaksi), 0, 4);
       $produk = DB::table('tbl_produk') -> get();
       $supplier = DB::table('tbl_supplier') -> get();
-
+      $createdAt = date("Y-m-d H:i:s");
+      //tambahkan data faktur ke database
+      DB::table('tbl_transaksi') -> insert(['no_transaksi' => $noTransaksi,'jenis_transaksi' => 'pembelian', 'jumlah_produk' => 0, 'total_biaya' => 0, 'active' => 'n', 'operator' => $userLogin, 'created_at' => $createdAt]);
       return view('page.pembelian.formPembelian',['produk' => $produk,'supplier' => $supplier, 'noTransaksi' => $noTransaksi, 'noTransaksi2Cap' => $noTransaksi2Cap]);
     }
 
     public function pembelianTambahProduk(Request $request)
     {
-      // 'kodeProduk':kodeProduk,'noFaktur':noFaktur,'jumlahBarang':jumlahBarang
-        //cek Faktur
-        //DB::table('tbl_transaksi') -> where ('no_transaksi')
+
         $kodeProduk = $request -> kodeProduk;
-        $noFaktur = $request -> noFaktur;
-        $jumlahBarang = $request -> jumlahBarang;
-        //DB::('tbl_')
-        return \Response::json($request);
+        $noTransaksi = $request -> noTransaksi;
+        $jumlahProduk = $request -> jumlahProduk;
+        $dataProduk = DB::table('tbl_produk') -> where('kode', $kodeProduk) -> first();
+        // $dataProduk = DB::table('tbl_produk') -> where('kode', $kodeProduk) -> first();
+        $hargaProduk = $dataProduk   -> harga_jual;
+        $totalHarga = $hargaProduk * $jumlahProduk;
+        $createdAt = date("Y-m-d H:i:s");
+        DB::table('tbl_temp_transaksi') -> insert(['no_transaksi' => $noTransaksi, 'kode_produk' => $kodeProduk, 'jumlah_produk' => $jumlahProduk, 'total_harga' => $totalHarga, 'waktu' => $createdAt]);
+        // return \Response::json($request);
     }
 
     public function testPostman(Request $request)
