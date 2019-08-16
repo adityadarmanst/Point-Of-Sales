@@ -35,12 +35,17 @@ class PembelianCon extends Controller
         //jika iya, maka lakukan query untuk mengupdate data tersebut
         $qtProduk = DB::table('tbl_temp_transaksi') -> where('no_transaksi', $noTransaksi) -> where('kode_produk', $kodeProduk) -> count();
         if($qtProduk > 0){
-          
-          $data['status'] = "Produk sudah ada";
+          $produkAda = DB::table('tbl_temp_transaksi') -> where('no_transaksi', $noTransaksi) -> where('kode_produk', $kodeProduk) -> first();
+          $jlhAwal = $produkAda -> jumlah_produk;
+          $hargaAwal = $produkAda -> total_harga;
+          $jlhSkrg = $jlhAwal + $jumlahProduk;
+          $hargaSekarang = $hargaAwal + $totalHarga;
+          DB::table('tbl_temp_transaksi') -> where('no_transaksi', $noTransaksi) -> where('kode_produk', $kodeProduk) -> update(['jumlah_produk' => $jlhSkrg, 'total_harga' => $hargaSekarang]);
+          $data['status'] = "update";
         }else{
           //simpan data tambah produk ke tbl_temp_transaksi
           DB::table('tbl_temp_transaksi') -> insert(['no_transaksi' => $noTransaksi, 'kode_produk' => $kodeProduk, 'jumlah_produk' => $jumlahProduk, 'total_harga' => $totalHarga, 'waktu' => $createdAt]);
-          $data['status'] = "Produk belum ada";
+          $data['status'] = "tambah";
         }
         // //update status transaksi menjadi aktif (belum di checkout)
         DB::table('tbl_transaksi') -> where('no_transaksi', $noTransaksi) -> update(['active' => 'a']);
