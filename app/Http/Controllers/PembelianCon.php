@@ -31,7 +31,10 @@ class PembelianCon extends Controller
         $hargaProduk = $dataProduk   -> harga_jual;
         $totalHarga = $hargaProduk * $jumlahProduk;
         $createdAt = date("Y-m-d H:i:s");
+        //simpan data tambah produk ke tbl_temp_transaksi
         DB::table('tbl_temp_transaksi') -> insert(['no_transaksi' => $noTransaksi, 'kode_produk' => $kodeProduk, 'jumlah_produk' => $jumlahProduk, 'total_harga' => $totalHarga, 'waktu' => $createdAt]);
+        //update status transaksi menjadi aktif (belum di checkout)
+        DB::table('tbl_transaksi') -> where('no_transaksi', $noTransaksi) -> update(['active' => 'a']);
         // return \Response::json($request);
     }
 
