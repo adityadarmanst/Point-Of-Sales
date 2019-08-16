@@ -47,12 +47,12 @@ Route::post('/produk/hapusProses','ProdukCon@produkHapusProses');
 Route::post('/produk/detailProduk','ProdukCon@produkHapusProses');
 //pembelian
 Route::post('/transaksi/tambahProduk','PembelianCon@pembelianTambahProduk');
-Route::post('/transaksi/testPostman','PembelianCon@testPostman');
+Route::get('/transaksi/keranjangPembelian/{noTransaksi}','PembelianCon@keranjangPembelian');
 //untuk proses logout
 Route::get('/logOut', 'DashboardCon@logOut');
 
 
 //untuk testing
-Route::post('/testJson','pageCon@testJson');
+Route::get('/testJson/{id}','pageCon@testJson');
 Route::post('/updateSup', 'pageCon@updateSup');
 Route::get('/editForm', 'PageCon@editForm');

@@ -49,6 +49,7 @@
                             <div class="card">
                               <div class="card-body">
                             <h4 class="card-title">Daftar Keranjang</h4>
+                            <div id='divTemp'>
                             <table id='table_id' class="table-striped table-hover table">
 
                             <thead>
@@ -63,7 +64,7 @@
 
                             </tbody>
                           </table>
-
+                        </div>
                               <div id='divTest'></div>
                             </div>
                           </div>
@@ -76,7 +77,7 @@ $(document).ready(function() {
     $('#table_id').DataTable();
     $('#table_id2').DataTable();
     $('.js-example-basic-single').select2({placeholder: 'Pilih supplier'});
-
+    //$('#divTemp').html('<tr><td></td><td></td><td></td><td></td></tr>');
     $('.btnTambah').click(function(){
       let kodeProduk = $(this).attr('id');
       let noTransaksi = "{{$noTransaksi}}";
@@ -87,7 +88,7 @@ $(document).ready(function() {
       }else{
         $.post('/transaksi/tambahProduk',{'kodeProduk':kodeProduk,'noTransaksi':noTransaksi,'jumlahProduk':jumlahProduk},function(data){
           console.log(data);
-
+          $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
         });
       }
 

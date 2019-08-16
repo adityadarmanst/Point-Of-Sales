@@ -42,14 +42,14 @@ class PageCon extends Controller
             }
         }
         $statLog = ['statusLogin' => $statusLogin];
-        
+
         return \Response::json($statLog);
     }
 
-    public function testJson(Request $request)
+    public function testJson($id)
     {
-        $suppliers = DB::table('suppliers')->where('kode','09001902221')->get();
-        return $request->nama;
+
+        return $id;
         //return \Response::json($suppliers);
 
     }

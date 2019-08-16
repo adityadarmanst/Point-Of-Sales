@@ -38,6 +38,13 @@ class PembelianCon extends Controller
         // return \Response::json($request);
     }
 
+    public function keranjangPembelian($noTransaksi)
+    {
+      $keranjang = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> get();
+
+       return view('page.pembelian.keranjangPembelian', ['keranjang' => $keranjang]);
+    }
+
     public function testPostman(Request $request)
     {
       return \Response::json($request);
