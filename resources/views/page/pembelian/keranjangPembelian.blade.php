@@ -1,4 +1,4 @@
-<table id='table_id' class="table-striped table-hover table">
+<table id='table_id22' class="table-striped table-hover table">
 
 <thead>
     <tr>
@@ -19,7 +19,7 @@ $namaProduk = $produk -> nama;
 <td>{{$loop -> iteration}}</td>
 <td>{{$namaProduk}}<br/><small>Qty : {{$ker -> jumlah_produk}}</small></td>
 <td>Rp. {{number_format($ker -> total_harga)}}</td>
-<td><button class="btn btn-primary">Hapus</button></td>
+<td><button class="btn btn-primary btnHapus" id="{{$ker -> id}}">Hapus</button></td>
 </tr>
 @endforeach
 </tbody>
@@ -27,6 +27,14 @@ $namaProduk = $produk -> nama;
 
 <script>
 $(document).ready(function(){
-      $('#table_id').DataTable();
+    $('#table_id22').DataTable();
+    let noTransaksi = "{{$noTransaksi}}";
+    $('.btnHapus').click(function(){
+       let idTemp = $(this).attr('id');
+       $.post('/transaksi/hapusItemKeranjangPembelian',{'idTemp':idTemp},function(data){
+       $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
+       });
+    });
+
 });
 </script>

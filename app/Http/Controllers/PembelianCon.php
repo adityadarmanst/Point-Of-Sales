@@ -56,7 +56,14 @@ class PembelianCon extends Controller
     {
       $keranjang = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> get();
 
-       return view('page.pembelian.keranjangPembelian', ['keranjang' => $keranjang]);
+       return view('page.pembelian.keranjangPembelian', ['keranjang' => $keranjang, 'noTransaksi' => $noTransaksi]);
+    }
+
+    public function hapusItemKeranjang(Request $request)
+    {
+      $data['status'] = 'tes';
+      DB::table('tbl_temp_transaksi') -> where('id', $request->idTemp) -> delete();
+      return \Response::json($data);
     }
 
     public function testPostman(Request $request)

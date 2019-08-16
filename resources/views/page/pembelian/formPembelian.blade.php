@@ -65,7 +65,7 @@
                             </tbody>
                           </table>
                         </div>
-                              <div id='divTest' class="alert alert-primary" role="alert"></div>
+                              <div id='divTest' class="alert alert-primary mt-2" role="alert"></div>
                             </div>
                           </div>
 
@@ -78,7 +78,8 @@ $(document).ready(function() {
     $('#table_id2').DataTable();
     $('#divTest').hide();
     $('.js-example-basic-single').select2({placeholder: 'Pilih supplier'});
-    //$('#divTemp').html('<tr><td></td><td></td><td></td><td></td></tr>');
+    let pesan = "";
+
     $('.btnTambah').click(function(){
       let kodeProduk = $(this).attr('id');
       let noTransaksi = "{{$noTransaksi}}";
@@ -91,7 +92,13 @@ $(document).ready(function() {
           $.post('/transaksi/tambahProduk',{'kodeProduk':kodeProduk,'noTransaksi':noTransaksi,'jumlahProduk':jumlahProduk},function(data){
             console.log(data);
             $('#divTest').show();
-            $('#divTest').html(data.status);
+            if(data.status == 'tambah'){
+              pesan = "Produk di tambahkan ke keranjang";
+            }else{
+              pesan = "Produk di update ke keranjang";
+            }
+            $('#divTest').html(pesan);
+            setTimeout(tutupAlertCart, 2000);
             $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
           });
 
@@ -100,6 +107,11 @@ $(document).ready(function() {
 
     });
 
+    function tutupAlertCart()
+    {
+      $('#divTest').hide();
+      $('#divTest').html("");
+    }
 
 });
 </script>
