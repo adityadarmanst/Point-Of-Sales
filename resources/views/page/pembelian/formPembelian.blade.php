@@ -88,6 +88,7 @@ $(document).ready(function() {
       }else{
         $.post('/transaksi/tambahProduk',{'kodeProduk':kodeProduk,'noTransaksi':noTransaksi,'jumlahProduk':jumlahProduk},function(data){
           console.log(data);
+          $('#divTest').html(data.status);
           $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
         });
       }
