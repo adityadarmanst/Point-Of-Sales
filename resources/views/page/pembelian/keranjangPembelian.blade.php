@@ -33,6 +33,7 @@ $(document).ready(function(){
        let idTemp = $(this).attr('id');
        $.post('/transaksi/hapusItemKeranjangPembelian',{'idTemp':idTemp},function(data){
        $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
+       Swal.fire('Hapus produk','Produk berhasil di hapus dari keranjang','success');
        });
     });
 
