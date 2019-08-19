@@ -72,9 +72,27 @@
   <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Total Harga</label>
                       <div class="col-sm-9 mt-3">
-                      <h2><strong id='capHarga'>Rp.</strong></h2>
+                      <h2><strong id='capHarga'>Rp. 0</strong></h2>
                       </div>
                     </div>
+                    <div class="form-group row">
+                                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Pembayaran</label>
+                                        <div class="col-sm-9 mt-3">
+                                          <select class='form-control' id='txtTipePembayaran'>
+                                            <option value="01">Lunas (Cash)</option>
+                                            <option value="02">Pelunasan sebagian</option>
+                                            <option value="03">Pelunasan nanti</option>
+                                          </select>
+                                        </div>
+                                      </div>
+
+                                      <div class="form-group row" id='divJumlahPelunasan'>
+                                                          <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jumlah </label>
+                                                          <div class="col-sm-9 mt-3">
+                                                        <input type="text" class="form-control">
+                                                          </div>
+                                                        </div>
+
 </div>
 
                             </div>
@@ -88,6 +106,7 @@ $(document).ready(function() {
     $('#table_id').DataTable();
     $('#table_id2').DataTable();
     $('#divTest').hide();
+    $('#divJumlahPelunasan').hide();
     $('.js-example-basic-single').select2({placeholder: 'Pilih supplier'});
     let pesan = "";
 
@@ -127,6 +146,15 @@ $(document).ready(function() {
       $('#divTest').hide();
       $('#divTest').html("");
     }
+
+    $('#txtTipePembayaran').change(function(){
+      let tipePembayaran = $('#txtTipePembayaran').val();
+      if(tipePembayaran == "02"){
+        $('#divJumlahPelunasan').show();
+      }else{
+        $('#divJumlahPelunasan').hide();
+      }
+    });
 
 });
 </script>
