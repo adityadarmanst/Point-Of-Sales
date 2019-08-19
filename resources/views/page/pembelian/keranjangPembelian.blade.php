@@ -24,7 +24,7 @@ $namaProduk = $produk -> nama;
 @endforeach
 </tbody>
 </table>
-
+<button class='btn btn-primary'>Checkout</button>
 <script>
 $(document).ready(function(){
     $('#table_id22').DataTable();
