@@ -66,6 +66,11 @@ class PembelianCon extends Controller
       return \Response::json($data);
     }
 
+    public function preCheckout(Request $requst)
+    {
+        // return view('page.');
+    }
+
     public function testPostman(Request $request)
     {
       return \Response::json($request);
