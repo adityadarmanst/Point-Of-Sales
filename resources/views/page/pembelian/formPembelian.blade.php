@@ -5,7 +5,7 @@
   <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Buat pembelian baru</h4>
+                    <h3><strong>Masukkan Produk</strong></h3>
 
                     <div class="form-group row">
                         <label for="exampleInputEmail2" class="col-sm-3 col-form-label">No Faktur</label>
@@ -48,7 +48,7 @@
               <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                               <div class="card-body">
-                            <h4 class="card-title">Daftar Keranjang</h4>
+                            <h3><strong>Informasi Keranjang</strong></h3>
                             <div id='divTemp'>
                             <table id='table_id' class="table-striped table-hover table">
 
@@ -66,6 +66,17 @@
                           </table>
                         </div>
                               <div id='divTest' class="alert alert-primary mt-2" role="alert"></div>
+<hr/>
+<h3><strong>Informasi Checkout</strong></h3>
+<div id='divInformasiKeranjang'>
+  <div class="form-group row">
+                      <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Total Harga</label>
+                      <div class="col-sm-9 mt-3">
+                      <h2><strong id='capHarga'>Rp.</strong></h2>
+                      </div>
+                    </div>
+</div>
+
                             </div>
                           </div>
 
@@ -97,6 +108,10 @@ $(document).ready(function() {
             }else{
               pesan = "Produk di update ke keranjang";
             }
+            $.post('/transaksi/updateHargaKeranjangPembelian',{'noTransaksi':noTransaksi},function(data){
+              let harga = data.harga;
+              $('#capHarga').html("Rp. "+harga);
+            });
             $('#divTest').html(pesan);
             setTimeout(tutupAlertCart, 2000);
             $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);

@@ -66,10 +66,21 @@ class PembelianCon extends Controller
       return \Response::json($data);
     }
 
-    public function preCheckout(Request $requst)
+    public function updateHargaKeranjangPembelian(Request $request)
     {
-        // return view('page.');
+
+      $totalharga = 0;
+      $noTransaksi = $request -> noTransaksi;
+      $dataTransaksi = DB::table('tbl_temp_transaksi') -> where('no_transaksi', $noTransaksi) -> sum('total_harga');
+      $data['harga'] = number_format($dataTransaksi);
+      return \Response::json($data);
     }
+
+    public function preCheckout(Request $request)
+    {
+
+    }
+
 
     public function testPostman(Request $request)
     {

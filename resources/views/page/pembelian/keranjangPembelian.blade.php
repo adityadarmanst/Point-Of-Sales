@@ -24,7 +24,6 @@ $namaProduk = $produk -> nama;
 @endforeach
 </tbody>
 </table>
-<button class='btn btn-primary'>Checkout</button>
 <script>
 $(document).ready(function(){
     $('#table_id22').DataTable();
@@ -32,6 +31,10 @@ $(document).ready(function(){
     $('.btnHapus').click(function(){
        let idTemp = $(this).attr('id');
        $.post('/transaksi/hapusItemKeranjangPembelian',{'idTemp':idTemp},function(data){
+         $.post('/transaksi/updateHargaKeranjangPembelian',{'noTransaksi':noTransaksi},function(data){
+           let harga = data.harga;
+           $('#capHarga').html("Rp. "+harga);
+         });
        $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
        Swal.fire('Hapus produk','Produk berhasil di hapus dari keranjang','success');
        });

@@ -49,6 +49,7 @@ Route::post('/produk/detailProduk','ProdukCon@produkHapusProses');
 Route::post('/transaksi/tambahProduk','PembelianCon@pembelianTambahProduk');
 Route::get('/transaksi/keranjangPembelian/{noTransaksi}','PembelianCon@keranjangPembelian');
 Route::post('/transaksi/hapusItemKeranjangPembelian','PembelianCon@hapusItemKeranjang');
+Route::post('/transaksi/updateHargaKeranjangPembelian','PembelianCon@updateHargaKeranjangPembelian');
 //untuk proses logout
 Route::get('/logOut', 'DashboardCon@logOut');
 
