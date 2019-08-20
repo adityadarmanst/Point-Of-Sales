@@ -100,6 +100,18 @@
                                                           </div>
                                             </div>
 
+                                            <div class="form-group row" id='divSupplier'>
+                                                                  <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Supplier</label>
+                                                              <div class="col-sm-9 mt-3">
+                                                                <select class="js-example-basic-single form-control" name="state">
+                                                                  @foreach($supplier as $sup)
+                                                                    <option value="{{$sup -> kode}}">{{$sup -> nama_lengkap}}</option>
+                                                                  @endforeach
+                                                                </select>
+
+                                                              </div>
+                                                </div>
+
 </div>
 
                             </div>
@@ -114,6 +126,8 @@ $(document).ready(function() {
     $('#table_id2').DataTable();
     $('#divTest').hide();
     $('#divJumlahPelunasan').hide();
+    $('#divSisaPembayaran').hide();
+
     $('.js-example-basic-single').select2({placeholder: 'Pilih supplier'});
     let pesan = "";
     let hargaFinal = 0;
@@ -138,7 +152,7 @@ $(document).ready(function() {
             $.post('/transaksi/updateHargaKeranjangPembelian',{'noTransaksi':noTransaksi},function(data){
               let harga = data.harga;
               hargaFinal = harga;
-              $('#capHarga').html("Rp. "+harga);
+              $('#capHarga').html(harga);
             });
             $('#divTest').html(pesan);
             setTimeout(tutupAlertCart, 2000);
@@ -161,10 +175,12 @@ $(document).ready(function() {
       if(tipePembayaran == "02"){
         $('#divJumlahPelunasan').show();
         $('#txtJumlahBayar').focus();
+        $('#divSisaPembayaran').show();
       }else{
         $('#divJumlahPelunasan').hide();
       }
     });
+
 
     $('#txtJumlahBayar').change(function(){
       var pelunasan = parseInt($('#txtJumlahBayar').val());
@@ -172,7 +188,8 @@ $(document).ready(function() {
       var hargaPelunasanInt = hargaFinal.replace(",","");
       var hargaPelunasanInt2 = parseInt(hargaPelunasanInt);
       var hargaPelunasan = hargaPelunasanInt2 - pelunasan;
-      $('#capSisaPelunasan').html("Rp. "+  hargaPelunasan);
+      var pelunasanFinal = numeral(hargaPelunasan).format('0,0');
+      $('#capSisaPelunasan').html("Rp. "+  pelunasanFinal);
     });
 
 });

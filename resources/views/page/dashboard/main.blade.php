@@ -16,10 +16,9 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="ladun/login/css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
-
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <script src="ladun/main/sweetalert2@8.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
     <!-- endinject -->
     <link rel="shortcut icon" href="ladun/login/images/favicon.png" />
   </head>

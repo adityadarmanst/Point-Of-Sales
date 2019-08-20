@@ -17,7 +17,8 @@ class PembelianCon extends Controller
       $createdAt = date("Y-m-d H:i:s");
       //tambahkan data faktur ke database
       DB::table('tbl_transaksi') -> insert(['no_transaksi' => $noTransaksi,'jenis_transaksi' => 'pembelian', 'jumlah_produk' => 0, 'total_biaya' => 0, 'active' => 'n', 'operator' => $userLogin, 'created_at' => $createdAt]);
-      return view('page.pembelian.formPembelian',['produk' => $produk,'supplier' => $supplier, 'noTransaksi' => $noTransaksi, 'noTransaksi2Cap' => $noTransaksi2Cap]);
+      $supplier = DB::table('tbl_supplier') -> get();
+      return view('page.pembelian.formPembelian',['produk' => $produk,'supplier' => $supplier, 'noTransaksi' => $noTransaksi, 'noTransaksi2Cap' => $noTransaksi2Cap, 'supplier' => $supplier]);
     }
 
     public function pembelianTambahProduk(Request $request)
