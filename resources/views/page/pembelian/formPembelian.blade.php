@@ -89,7 +89,7 @@
                                       <div class="form-group row" id='divJumlahPelunasan'>
                                                           <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jumlah </label>
                                                           <div class="col-sm-9 mt-3">
-                                                        <input type="text" class="form-control">
+                                                        <input type="text" class="form-control" id='txtJumlahBayar'>
                                                           </div>
                                                         </div>
 
@@ -151,6 +151,7 @@ $(document).ready(function() {
       let tipePembayaran = $('#txtTipePembayaran').val();
       if(tipePembayaran == "02"){
         $('#divJumlahPelunasan').show();
+        $('#txtJumlahBayar').focus();
       }else{
         $('#divJumlahPelunasan').hide();
       }
