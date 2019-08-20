@@ -72,7 +72,7 @@
   <div class="form-group row">
                       <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Total Harga</label>
                       <div class="col-sm-9 mt-3">
-                      <h2><strong id='capHarga'>Rp. 0</strong></h2>
+                      <h2><strong>Rp. <span id='capHarga'>0</strong></h2>
                       </div>
                     </div>
                     <div class="form-group row">
@@ -87,11 +87,18 @@
                                       </div>
 
                                       <div class="form-group row" id='divJumlahPelunasan'>
-                                                          <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jumlah </label>
+                                                          <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Jumlah pelunasan</label>
                                                           <div class="col-sm-9 mt-3">
                                                         <input type="text" class="form-control" id='txtJumlahBayar'>
                                                           </div>
                                                         </div>
+
+                                        <div class="form-group row" id='divSisaPembayaran'>
+                                                              <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Sisa Pelunasan</label>
+                                                          <div class="col-sm-9 mt-3">
+                                                       <h2><strong id='capSisaPelunasan'>Rp. 0</strong></h2>
+                                                          </div>
+                                            </div>
 
 </div>
 
@@ -109,6 +116,7 @@ $(document).ready(function() {
     $('#divJumlahPelunasan').hide();
     $('.js-example-basic-single').select2({placeholder: 'Pilih supplier'});
     let pesan = "";
+    let hargaFinal = 0;
 
     $('.btnTambah').click(function(){
       let kodeProduk = $(this).attr('id');
@@ -129,6 +137,7 @@ $(document).ready(function() {
             }
             $.post('/transaksi/updateHargaKeranjangPembelian',{'noTransaksi':noTransaksi},function(data){
               let harga = data.harga;
+              hargaFinal = harga;
               $('#capHarga').html("Rp. "+harga);
             });
             $('#divTest').html(pesan);
@@ -155,6 +164,15 @@ $(document).ready(function() {
       }else{
         $('#divJumlahPelunasan').hide();
       }
+    });
+
+    $('#txtJumlahBayar').change(function(){
+      var pelunasan = parseInt($('#txtJumlahBayar').val());
+      var hargaPelunasanString = $('#capHarga').html();
+      var hargaPelunasanInt = hargaFinal.replace(",","");
+      var hargaPelunasanInt2 = parseInt(hargaPelunasanInt);
+      var hargaPelunasan = hargaPelunasanInt2 - pelunasan;
+      $('#capSisaPelunasan').html("Rp. "+  hargaPelunasan);
     });
 
 });
