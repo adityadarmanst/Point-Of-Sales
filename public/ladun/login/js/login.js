@@ -10,6 +10,7 @@ $(document).ready(function(){
 
     var capNotif = $('#capNotifLogin');
     capNotif.hide();
+    $('#txtUsername').focus();
 
     $('#btnMasuk').click(function(){
         let username = $('#txtUsername').val();

@@ -104,6 +104,7 @@
                                                                   <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Supplier</label>
                                                               <div class="col-sm-9 mt-3">
                                                                 <select class="js-example-basic-single form-control" name="state">
+                                                                  <option value='none'>-- Pilih supplier --</option>
                                                                   @foreach($supplier as $sup)
                                                                     <option value="{{$sup -> kode}}">{{$sup -> nama_lengkap}}</option>
                                                                   @endforeach
@@ -111,8 +112,8 @@
 
                                                               </div>
                                                 </div>
-
-</div>
+                                                <button class="btn btn-primary btn-lg" id='btnCheckout'><i class="mdi mdi mdi-basket"></i> Checkout</button>
+                                      </div>
 
                             </div>
                           </div>
@@ -181,7 +182,6 @@ $(document).ready(function() {
       }
     });
 
-
     $('#txtJumlahBayar').change(function(){
       var pelunasan = parseInt($('#txtJumlahBayar').val());
       var hargaPelunasanString = $('#capHarga').html();
@@ -191,6 +191,11 @@ $(document).ready(function() {
       var pelunasanFinal = numeral(hargaPelunasan).format('0,0');
       $('#capSisaPelunasan').html("Rp. "+  pelunasanFinal);
     });
+
+      $('#btnCheckout').click(function(){
+        let tipePembayaran = $('#txtTipePembayaran').val();
+        window.alert(tipePembayaran);
+      });
 
 });
 </script>
