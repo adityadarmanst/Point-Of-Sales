@@ -22,3 +22,5 @@ buka git/command prompt, masukkan perintah clone :
 
 6. Jalankan server
 >> php artisan serve
+
+Apabila mengalami masalah dalam instalasi, dapat menghubungi saya di alditha.forum@gmail.com
