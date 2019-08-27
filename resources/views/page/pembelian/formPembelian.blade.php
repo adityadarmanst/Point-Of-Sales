@@ -8,7 +8,7 @@
                     <h3><strong>Masukkan Produk</strong></h3>
 
                     <div class="form-group row">
-                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">No Faktur</label>
+                        <label for="exampleInputEmail2" class="col-sm-3 col-form-label">No Transaksi</label>
                         <div class="col-sm-9">
                           <input type="text" class="form-control" id="txtNoFaktur" disabled value="{{$noTransaksi2Cap}}">
                         </div>
@@ -159,10 +159,7 @@ $(document).ready(function() {
             setTimeout(tutupAlertCart, 2000);
             $('#divTemp').load('transaksi/keranjangPembelian/'+noTransaksi);
           });
-
-
       }
-
     });
 
     function tutupAlertCart()
@@ -177,7 +174,11 @@ $(document).ready(function() {
         $('#divJumlahPelunasan').show();
         $('#txtJumlahBayar').focus();
         $('#divSisaPembayaran').show();
+      }else if(tipePembayaran == "03"){
+        $('#divSisaPembayaran').hide();
+        $('#divJumlahPelunasan').hide();
       }else{
+          $('#divSisaPembayaran').hide();
         $('#divJumlahPelunasan').hide();
       }
     });
@@ -194,7 +195,13 @@ $(document).ready(function() {
 
       $('#btnCheckout').click(function(){
         let tipePembayaran = $('#txtTipePembayaran').val();
-        window.alert(tipePembayaran);
+        if(tipePembayaran == '01'){
+          window.alert("Lunas");
+        }else if(tipePembayaran == '02'){
+          window.alert("Pelunasan sebagian");
+        }else if(tipePembayaran == '03'){
+          window.alert("Pelunasan nanti");
+        }
       });
 
 });

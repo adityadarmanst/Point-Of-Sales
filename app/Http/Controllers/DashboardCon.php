@@ -21,9 +21,11 @@ class DashboardCon extends Controller
         return view('page.dashboard.beranda');
     }
 
-  
+
     public function logOut()
     {
+       $operator = session('userSession');
+        DB::table('tbl_transaksi') -> where('active','n') -> where('operator' , $operator) -> delete();
         session()->flush();
         return redirect('/');
     }
