@@ -103,7 +103,7 @@
                                             <div class="form-group row" id='divSupplier'>
                                                                   <label for="exampleInputUsername2" class="col-sm-3 col-form-label">Supplier</label>
                                                               <div class="col-sm-9 mt-3">
-                                                                <select class="js-example-basic-single form-control" name="state">
+                                                                <select class="js-example-basic-single form-control" id='txtSupplier' name="state">
                                                                   <option value='none'>-- Pilih supplier --</option>
                                                                   @foreach($supplier as $sup)
                                                                     <option value="{{$sup -> kode}}">{{$sup -> nama_lengkap}}</option>
@@ -195,13 +195,39 @@ $(document).ready(function() {
 
       $('#btnCheckout').click(function(){
         let tipePembayaran = $('#txtTipePembayaran').val();
-        if(tipePembayaran == '01'){
-          window.alert("Lunas");
-        }else if(tipePembayaran == '02'){
-          window.alert("Pelunasan sebagian");
-        }else if(tipePembayaran == '03'){
-          window.alert("Pelunasan nanti");
+        let noTransaksi = "{{$noTransaksi}}";
+        let kdSupplier = $('#txtSupplier').val();
+
+        if(kdSupplier == 'none'){
+          Swal.fire('Pilih supplier','Harap masukkan nama supplier sebelum checkout','warning');
+        }else{
+          if(tipePembayaran == '01'){
+            // window.alert("Siap melakukan checkout dengan no transaksi : " + noTransaksi);
+
+            Swal.fire({
+              title: 'Checkout?',
+              text: "Lakukan checkout pembelian?",
+              type: 'info',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Ya!'
+            }).then((result) => {
+              if (result.value) {
+                $.post('/transaksi/checkOutPembelian',{''},function(data){
+                  console.log(data);
+                });
+              }
+          });
+
+
+          }else if(tipePembayaran == '02'){
+            window.alert("Pelunasan sebagian");
+          }else if(tipePembayaran == '03'){
+            window.alert("Pelunasan nanti");
+          }
         }
+
       });
 
 });
