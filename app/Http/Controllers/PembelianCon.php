@@ -16,7 +16,7 @@ class PembelianCon extends Controller
       $supplier = DB::table('tbl_supplier') -> get();
       $createdAt = date("Y-m-d H:i:s");
       //tambahkan data faktur ke database
-      DB::table('tbl_transaksi') -> insert(['no_transaksi' => $noTransaksi,'jenis_transaksi' => 'pembelian', 'jumlah_produk' => 0, 'total_biaya' => 0, 'active' => 'n', 'operator' => $userLogin, 'kd_supplier' => '','created_at' => $createdAt]);
+      DB::table('tbl_transaksi') -> insert(['no_transaksi' => $noTransaksi,'jenis_transaksi' => 'pembelian', 'jumlah_produk' => 0, 'total_biaya' => 0, 'active' => 'n', 'tipe_pembayaran' => '', 'total_dibayar' => 0, 'sisa_pembayaran' => 0, 'operator' => $userLogin, 'kd_supplier' => '','created_at' => $createdAt, 'status_pembayaran' => 'belum_lunas']);
       $supplier = DB::table('tbl_supplier') -> get();
       return view('page.pembelian.formPembelian',['produk' => $produk,'supplier' => $supplier, 'noTransaksi' => $noTransaksi, 'noTransaksi2Cap' => $noTransaksi2Cap, 'supplier' => $supplier]);
     }
@@ -86,6 +86,7 @@ class PembelianCon extends Controller
     {
       $data['status'] = '';
       $noTransaksi = $request -> noTransaksi;
+      $kdSupplier = $request -> kdSupplier;
       //cek apakah transaksi kosong
       $jumlah = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> count();
       $listTransaksi = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> get();
@@ -93,9 +94,12 @@ class PembelianCon extends Controller
       if($jumlah < 1){
         $data['status'] = 'no_record';
       }else{
+        $totalHargaPembelian = 0;
         foreach($listTransaksi as $ls){
           //tangkap jumlah pembelian per produk
           $jumlahPembelianTemp = $ls -> jumlah_produk;
+          $totalPembelian = $ls -> total_harga;
+          $totalHargaPembelian = $totalHargaPembelian + $totalPembelian;
           //ambil kode produk
           $kdProduk = $ls -> kode_produk;
           //ambil jumlah produk di tabel produk
@@ -105,6 +109,8 @@ class PembelianCon extends Controller
           //update total stok
           DB::table('tbl_produk') -> where('kode', $kdProduk) -> update(['stok' => $stokAkhir]);
         }
+        //update data transaksi
+        DB::table('tbl_transaksi') -> where('no_transaksi',$noTransaksi) -> update(['total_biaya' => $totalHargaPembelian,'kd_supplier' => $kdSupplier]);
         // $data['total_barang'] = $totalBarang;
       }
       return \Response::json($data);

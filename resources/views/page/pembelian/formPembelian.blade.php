@@ -214,7 +214,7 @@ $(document).ready(function() {
               confirmButtonText: 'Ya!'
             }).then((result) => {
               if (result.value) {
-                $.post('/transaksi/checkOutPembelian',{'noTransaksi':noTransaksi},function(data){
+                $.post('/transaksi/checkOutPembelian',{'noTransaksi':noTransaksi,'kdSupplier':kdSupplier},function(data){
                   console.log(data);
                 });
               }
