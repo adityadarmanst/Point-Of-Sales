@@ -82,7 +82,7 @@ class PembelianCon extends Controller
 
     }
 
-    public function checkOutPembelian()
+    public function checkOutPembelian(Request $request)
     {
       $data['status'] = 'test';
       return \Response::json($data);
