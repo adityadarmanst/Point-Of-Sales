@@ -16,7 +16,7 @@ class PembelianCon extends Controller
       $supplier = DB::table('tbl_supplier') -> get();
       $createdAt = date("Y-m-d H:i:s");
       //tambahkan data faktur ke database
-      DB::table('tbl_transaksi') -> insert(['no_transaksi' => $noTransaksi,'jenis_transaksi' => 'pembelian', 'jumlah_produk' => 0, 'total_biaya' => 0, 'active' => 'n', 'operator' => $userLogin, 'created_at' => $createdAt]);
+      DB::table('tbl_transaksi') -> insert(['no_transaksi' => $noTransaksi,'jenis_transaksi' => 'pembelian', 'jumlah_produk' => 0, 'total_biaya' => 0, 'active' => 'n', 'operator' => $userLogin, 'kd_supplier' => '','created_at' => $createdAt]);
       $supplier = DB::table('tbl_supplier') -> get();
       return view('page.pembelian.formPembelian',['produk' => $produk,'supplier' => $supplier, 'noTransaksi' => $noTransaksi, 'noTransaksi2Cap' => $noTransaksi2Cap, 'supplier' => $supplier]);
     }
@@ -84,7 +84,29 @@ class PembelianCon extends Controller
 
     public function checkOutPembelian(Request $request)
     {
-      $data['status'] = 'test';
+      $data['status'] = '';
+      $noTransaksi = $request -> noTransaksi;
+      //cek apakah transaksi kosong
+      $jumlah = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> count();
+      $listTransaksi = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> get();
+      $totalBarang = 0;
+      if($jumlah < 1){
+        $data['status'] = 'no_record';
+      }else{
+        foreach($listTransaksi as $ls){
+          //tangkap jumlah pembelian per produk
+          $jumlahPembelianTemp = $ls -> jumlah_produk;
+          //ambil kode produk
+          $kdProduk = $ls -> kode_produk;
+          //ambil jumlah produk di tabel produk
+          $dataProduk = DB::table('tbl_produk') -> where('kode', $kdProduk) -> first();
+          $stokAwal = $dataProduk -> stok;
+          $stokAkhir = $jumlahPembelianTemp + $stokAwal;
+          //update total stok
+          DB::table('tbl_produk') -> where('kode', $kdProduk) -> update(['stok' => $stokAkhir]);
+        }
+        // $data['total_barang'] = $totalBarang;
+      }
       return \Response::json($data);
     }
 
