@@ -87,6 +87,8 @@ class PembelianCon extends Controller
       $data['status'] = '';
       $noTransaksi = $request -> noTransaksi;
       $kdSupplier = $request -> kdSupplier;
+      $tipePembayaran = $request -> tipePembayaran;
+      $updatedAt = date("Y-m-d H:i:s");
       //cek apakah transaksi kosong
       $jumlah = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> count();
       $listTransaksi = DB::table('tbl_temp_transaksi') -> where('no_transaksi',$noTransaksi) -> get();
@@ -110,8 +112,12 @@ class PembelianCon extends Controller
           DB::table('tbl_produk') -> where('kode', $kdProduk) -> update(['stok' => $stokAkhir]);
         }
         //update data transaksi
-        DB::table('tbl_transaksi') -> where('no_transaksi',$noTransaksi) -> update(['total_biaya' => $totalHargaPembelian,'kd_supplier' => $kdSupplier]);
         // $data['total_barang'] = $totalBarang;
+        if($tipePembayaran == '01'){
+          DB::table('tbl_transaksi') -> where('no_transaksi',$noTransaksi) -> update(['total_biaya' => $totalHargaPembelian,'kd_supplier' => $kdSupplier,'tipe_pembayaran' => '01','status_pembayaran' => 'lunas','total_dibayar' => $totalHargaPembelian, 'sisa_pembayaran' => 0,'updated_at' => $updatedAt]);
+        }elseif($tipePembayaran == '02'){
+          
+        }
       }
       return \Response::json($data);
     }
