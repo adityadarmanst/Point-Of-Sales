@@ -90,6 +90,7 @@
                           <li class="nav-item"><a class="nav-link" href="#!">Biaya</a></li>
                           <li class="nav-item"><a class="nav-link" href="#!" id='btnKategori'>Kategori</a></li>
                           <li class="nav-item"><a class="nav-link" href="#!">Daerah</a></li>
+                          <li class='nav-item'><a class='nav-link' href='#!' id='btnResetStok'>Reset Stok</li>
                       </ul>
                   </div>
               </li>

@@ -72,4 +72,9 @@ class ProdukCon extends Controller
       return \Response::json($data);
     }
 
+    public function resetStok()
+    {
+      DB::table('tbl_produk') -> update(['stok' => 0]);
+    }
+
 }

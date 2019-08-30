@@ -34,4 +34,8 @@ $(document).ready(function(){
       $('#divUtama').load('/transaksi/pembelian');
     });
 
+    $('#btnResetStok').click(function(){
+        $.post('/')
+    });
+
 });
