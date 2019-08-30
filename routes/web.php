@@ -33,7 +33,7 @@ Route::post('/produk/formEditTampil','ProdukCon@produkFormEditTampil');
 Route::post('/produk/prosesEdit','ProdukCon@produkEditProses');
 Route::post('/produk/hapusProses','ProdukCon@produkHapusProses');
 Route::post('/produk/detailProduk','ProdukCon@produkHapusProses');
-Route::get('/produk/resetStok','ProdukCon@resetStok');
+Route::post('/produk/resetStok','ProdukCon@resetStok');
 //pembelian
 Route::post('/transaksi/tambahProduk','PembelianCon@pembelianTambahProduk');
 Route::get('/transaksi/keranjangPembelian/{noTransaksi}','PembelianCon@keranjangPembelian');

@@ -80,7 +80,7 @@ class PembelianCon extends Controller
     public function preCheckout(Request $request)
     {
       $data['status'] = '';
-      return \return response($data); 
+      //return \return response($data); 
     }
 
     public function checkOutPembelian(Request $request)

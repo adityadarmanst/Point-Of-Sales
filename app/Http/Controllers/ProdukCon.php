@@ -74,7 +74,7 @@ class ProdukCon extends Controller
 
     public function resetStok()
     {
-      DB::table('tbl_produk') -> update(['stok' => 0]);
+      DB::table('tbl_produk') -> update(['stok' => '0']);
     }
 
 }

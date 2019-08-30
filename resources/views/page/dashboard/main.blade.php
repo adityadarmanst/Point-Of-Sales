@@ -86,11 +86,12 @@
                   </a>
                   <div class="submenu">
                       <ul class="submenu-item">
-                          <li class="nav-item"><a class="nav-link" href="#!">Retur Pembelian</a></li>
+                         
                           <li class="nav-item"><a class="nav-link" href="#!">Biaya</a></li>
                           <li class="nav-item"><a class="nav-link" href="#!" id='btnKategori'>Kategori</a></li>
                           <li class="nav-item"><a class="nav-link" href="#!">Daerah</a></li>
-                          <li class='nav-item'><a class='nav-link' href='#!' id='btnResetStok'>Reset Stok</li>
+                          <li class="nav-item"><a class="nav-link" href="#!" id='btnResetStok'>Reset Stok</a></li>
+                          
                       </ul>
                   </div>
               </li>

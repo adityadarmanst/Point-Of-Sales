@@ -35,7 +35,9 @@ $(document).ready(function(){
     });
 
     $('#btnResetStok').click(function(){
-        $.post('/')
+        $.post('/produk/resetStok',function(){
+            
+        });
     });
 
 });
